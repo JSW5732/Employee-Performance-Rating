@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EMPLOYEE PERFORMANCE RATING - OPERATIONAL STAFF</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  .header-table td {
+    border: none;
+    padding: 5px 0;
+  }
+  .header-table input[type="text"] {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  .header-table select {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  .performance-factor-table td:first-child {
+    width: 70%;
+  }
+  .performance-factor-table select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  .comments-section textarea {
+    width: calc(100% - 16px);
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+  }
+  .signature-section input[type="text"],
+  .signature-section input[type="date"] {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    margin-right: 10px;
+  }
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .footer-section {
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<p>First Judicial District of Pennsylvania</p>
+<h2>EMPLOYEE PERFORMANCE RATING - OPERATIONAL STAFF</h2>
+
+<table class="header-table">
+  <tr>
+    <td>EMPLOYEE NAME: <input type="text"></td>
+    <td>EMPLOYEE I.D.: <input type="text"></td>
+  </tr>
+  <tr>
+    <td>POSITION CLASSIFICATION: <input type="text"></td>
+    <td>DEPARTMENT: <input type="text"></td>
+  </tr>
+  <tr>
+    <td>RETURN DATE: <input type="date"></td>
+    <td>
+      <input type="checkbox" id="annual"> <label for="annual">ANNUAL</label>
+      <input type="checkbox" id="promotional"> <label for="promotional">PROMOTIONAL</label>
+      <input type="checkbox" id="special"> <label for="special">SPECIAL</label>
+    </td>
+  </tr>
+</table>
+
+<h3>PERFORMANCE RATINGS:</h3>
+<p>U = Unsatisfactory</p>
+<p>NI = Needs Improvement</p>
+<p>ME = Meets Expectations</p>
+<p>EE = Exceeds Expectations</p>
+
+<table class="performance-factor-table">
+  <tr>
+    <th>PERFORMANCE FACTORS</th>
+    <th>APPROPRIATE RATING</th>
+  </tr>
+  <tr>
+    <td>1. QUALITY OF WORK: Accuracy, neatness and completeness of work, ability to meet unit's standards with regard to quality.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>2. QUANTITY OF WORK: Amount of work produced compared with the requirements of position.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>3. WORK HABITS: Organization and planning of work; time management; adherence to established procedures and rules; care of equipment, safety considerations; judgment; persistence and personal habits as they affect work in general.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      5. ATTENDANCE: Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
+      # of Tardiness Occurrences: <input type="text" size="5"><br>
+      # of Non-Medically Certified Sick Days: <input type="text" size="5">
+    </td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>6. RELATIONSHIP WITH PEOPLE: Courtesy, tact, self-control, patience, loyalty, and discretion in dealing with fellow employees and the public.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>7. PERSONAL ADJUSTMENT. Attitude toward work and supervision.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>OVERALL PERFORMANCE RATING: Must be consistent with the factor ratings.</td>
+    <td>
+      <select>
+        <option value="U">U</option>
+        <option value="NI">NI</option>
+        <option value="ME">ME</option>
+        <option value="EE">EE</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<div class="comments-section">
+  <p>Provide relevant comments in the following space. Use additional sheets if necessary.</p>
+  <textarea></textarea>
+</div>
+
+<div class="signature-section">
+  <p>Reviewing Officer Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
+  <p>Title: <input type="text" style="width: 300px;"></p>
+
+  <p>I conducted the performance interview with the employee, considered his/her</p>
+  <p>comments and rated the employee as indicated.</p>
+  <p>Rater's Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
+  <p>Title: <input type="text" style="width: 300px;"></p>
+
+  <p>I met with the rater, discussed my performance and understand my performance</p>
+  <p>expectations.</p>
+  <p>Employee's Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
+</div>
+
+<div class="checkbox-group">
+  <label><input type="checkbox"> I would like to attach a written response to this evaluation.</label>
+  <label><input type="checkbox"> I would like to discuss this performance evaluation with the reviewing officer.</label>
+  <label><input type="checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
+  <label><input type="checkbox"> Employee refuses to sign.</label>
+</div>
+
+<p>RATER: Indicate date below if a salary and/or longevity increment is due.</p>
+
+<div class="footer-section">
+  <p>For Division Administration Use Only</p>
+  <p>Deputy Court Administrator <input type="text" style="width: 300px;"> Date <input type="date"></p>
+
+  <p><input type="checkbox"> A salary increment is due</p>
+  <p>Please indicate one:
+    <input type="checkbox"> Approved
+    <input type="checkbox"> Not Approved
+    <input type="checkbox"> Deferred until <input type="date"> (Date)
+  </p>
+
+  <p><input type="checkbox"> A longevity increment is due</p>
+  <p>Please indicate one:
+    <input type="checkbox"> Approved
+    <input type="checkbox"> Not Approved
+    <input type="checkbox"> Deferred until <input type="date"> (Date)
+  </p>
+
+  <p>Appointing Authority Signature <input type="text" style="width: 300px;"> Date <input type="date"></p>
+  <p>08-200 Rav. 02-13</p>
+</div>
+
+</body>
+</html>
