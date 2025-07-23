@@ -6,6 +6,33 @@
   body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    color: #333;
+    line-height: 1.6;
+  }
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the entire header content */
+    margin-bottom: 20px;
+    text-align: center; /* Center text within the container */
+  }
+  .logo {
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 20px; /* Space between logo and text */
+  }
+  .header-text {
+    flex-grow: 1; /* Allows text to take available space */
+  }
+  .header-text h1 {
+    margin: 0;
+    color: #003366; /* Dark blue for a professional look */
+    font-size: 24px;
+  }
+  .header-text h2 {
+    margin-top: 5px;
+    color: #0055AA; /* Slightly lighter blue */
+    font-size: 20px;
   }
   table {
     width: 100%;
@@ -25,10 +52,12 @@
     width: 80%;
     padding: 5px;
     border: 1px solid #ccc;
+    border-radius: 4px;
   }
   .header-table select {
     padding: 5px;
     border: 1px solid #ccc;
+    border-radius: 4px;
   }
   .performance-factor-table td:first-child {
     width: 70%;
@@ -37,20 +66,23 @@
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
+    border-radius: 4px;
   }
   .comments-section textarea {
     width: calc(100% - 16px);
     height: 100px;
     padding: 8px;
     border: 1px solid #ccc;
+    border-radius: 4px;
     margin-top: 10px;
   }
   .signature-section input[type="text"],
   .signature-section input[type="date"] {
     border: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #0055AA; /* Blue underline for signatures */
     padding: 5px 0;
     margin-right: 10px;
+    width: 250px; /* Consistent width for signature lines */
   }
   .checkbox-group label {
     display: block;
@@ -58,15 +90,25 @@
   }
   .footer-section {
     margin-top: 30px;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #eee;
     padding-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+  }
+  input[type="checkbox"] {
+    margin-right: 5px;
   }
 </style>
 </head>
 <body>
 
-<p>First Judicial District of Pennsylvania</p>
-<h2>EMPLOYEE PERFORMANCE RATING - OPERATIONAL STAFF</h2>
+<div class="header-container">
+  <img src="getsitelogo.jpg" alt="First Judicial District of Pennsylvania Seal" class="logo">
+  <div class="header-text">
+    <h1>First Judicial District of Pennsylvania</h1>
+    <h2>EMPLOYEE PERFORMANCE RATING - OPERATIONAL STAFF</h2>
+  </div>
+</div>
 
 <table class="header-table">
   <tr>
@@ -132,7 +174,9 @@
     </td>
   </tr>
   <tr>
-    <td>4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
+    <td>
+      4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.
+    </td>
     <td>
       <select>
         <option value="U">U</option>
@@ -198,17 +242,17 @@
 </div>
 
 <div class="signature-section">
-  <p>Reviewing Officer Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
-  <p>Title: <input type="text" style="width: 300px;"></p>
+  <p>Reviewing Officer Signature: <input type="text"> Date: <input type="date"></p>
+  <p>Title: <input type="text"></p>
 
   <p>I conducted the performance interview with the employee, considered his/her</p>
   <p>comments and rated the employee as indicated.</p>
-  <p>Rater's Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
-  <p>Title: <input type="text" style="width: 300px;"></p>
+  <p>Rater's Signature: <input type="text"> Date: <input type="date"></p>
+  <p>Title: <input type="text"></p>
 
   <p>I met with the rater, discussed my performance and understand my performance</p>
   <p>expectations.</p>
-  <p>Employee's Signature: <input type="text" style="width: 300px;"> Date: <input type="date"></p>
+  <p>Employee's Signature: <input type="text"> Date: <input type="date"></p>
 </div>
 
 <div class="checkbox-group">
@@ -222,7 +266,7 @@
 
 <div class="footer-section">
   <p>For Division Administration Use Only</p>
-  <p>Deputy Court Administrator <input type="text" style="width: 300px;"> Date <input type="date"></p>
+  <p>Deputy Court Administrator <input type="text"> Date <input type="date"></p>
 
   <p><input type="checkbox"> A salary increment is due</p>
   <p>Please indicate one:
@@ -238,7 +282,7 @@
     <input type="checkbox"> Deferred until <input type="date"> (Date)
   </p>
 
-  <p>Appointing Authority Signature <input type="text" style="width: 300px;"> Date <input type="date"></p>
+  <p>Appointing Authority Signature <input type="text"> Date <input type="date"></p>
   <p>08-200 Rav. 02-13</p>
 </div>
 
