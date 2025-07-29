@@ -1,0 +1,111 @@
+body {
+    /*background: #b6b7bc;
+    old
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    */
+    background:white;
+    font-size: .80em;
+    font-weight: bold;
+    font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+  }
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the entire header content */
+    margin-bottom: 20px;
+    text-align: center; /* Center text within the container */
+  }
+  .logo {
+    max-width: 100px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 20px; /* Space between logo and text */
+  }
+  .header-text {
+    flex-grow: 1; /* Allows text to take available space */
+  }
+  .header-text h1 {
+    margin: 0;
+    color: #003366; /* Dark blue for a professional look */
+    font-size: 24px;
+  }
+  .header-text h2 {
+    margin-top: 5px;
+    color: #0055AA; /* Slightly lighter blue */
+    font-size: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  .header-table td {
+    border: none;
+    padding: 5px 0;
+  }
+  .header-table input[type="text"] {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .header-table select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .performance-factor-table td:first-child {
+    width: 70%;
+  }
+  .performance-factor-table select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .comments-section textarea {
+    width: calc(100% - 16px);
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  .signature-section input[type="text"],
+  .signature-section input[type="date"] {
+    border: none;
+    border-bottom: 1px solid #0055AA; /* Blue underline for signatures */
+    padding: 5px 0;
+    margin-right: 10px;
+    width: 250px; /* Consistent width for signature lines */
+  }
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .footer-section {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    font-size: 0.9em;
+    font-weight:bold;
+    color: #555;
+  }
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  #hidden-SDate,
+  #hidden-LDate,
+  #hidden-SIncrement,
+  #hidden-LIncrement,
+  #hidden-fields{
+    display: none;
+  }
