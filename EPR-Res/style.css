@@ -1,9 +1,4 @@
 body {
-    /*background: #b6b7bc;
-    old
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    */
     background:white;
     font-size: .80em;
     font-weight: bold;
@@ -11,101 +6,212 @@ body {
     margin: 0px;
     padding: 0px;
     color: #696969;
-  }
+}
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the entire header content */
-    margin-bottom: 20px;
-    text-align: center; /* Center text within the container */
-  }
-  .logo {
-    max-width: 100px; /* Adjust size as needed */
+    justify-content: center; /* Centers the image and header text as a group */
+    margin-bottom: 30px; /* Increased margin for better spacing */
+    padding-bottom: 15px; /* Added padding for separation */
+    border-bottom: 2px solid #ddd; /* Separator line */
+}
+.logo {
+    max-width: 120px; /* Slightly larger logo for prominence */
     height: auto;
-    margin-right: 20px; /* Space between logo and text */
-  }
-  .header-text {
-    flex-grow: 1; /* Allows text to take available space */
-  }
-  .header-text h1 {
+    margin-right: 30px; /* More space between logo and text */
+}
+.header-text {
+    text-align: center; /* Ensures text within header is centered */
+}
+.header-text h1 {
     margin: 0;
     color: #003366; /* Dark blue for a professional look */
-    font-size: 24px;
-  }
-  .header-text h2 {
-    margin-top: 5px;
+    font-size: 28px; /* Larger title */
+    letter-spacing: 0.5px;
+}
+.header-text h2 {
+    margin-top: 8px;
     color: #0055AA; /* Slightly lighter blue */
-    font-size: 20px;
-  }
-  table {
+    font-size: 22px;
+    font-weight: normal;
+}
+/* New class for centering the performance ratings section */
+.performance-section {
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below this section */
+}
+/* Style for the new performance ratings link */
+.performance-link {
+    margin: 15px 0 25px 0; /* Space above and below the link */
+}
+.performance-link a {
+    display: inline-block; /* Allows padding and background */
+    background-color: #e0f2f7; /* Light blue background for highlight */
+    color: #0056b3; /* Darker blue text color */
+    padding: 10px 20px; /* Increased padding for better highlight */
+    text-decoration: none; /* No underline */
+    border: 1px solid #b3e0ff; /* Subtle border */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.05em; /* Slightly larger text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+.performance-link a:hover {
+    background-color: #cceeff; /* Lighter blue on hover */
+    color: #003d80; /* Darker text on hover */
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+    background-color: #fff; /* White background for tables */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for tables */
+}
+th, td {
+    border: 1px solid #e0e0e0; /* Lighter borders */
+    padding: 10px;
     text-align: left;
-  }
-  .header-table td {
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+}
+.header-table td {
     border: none;
-    padding: 5px 0;
-  }
-  .header-table input[type="text"] {
-    width: 80%;
-    padding: 5px;
+    padding: 8px 0; /* Adjusted padding */
+}
+.header-table input[type="text"],
+.header-table input[type="date"] {
+    width: calc(100% - 10px); /* Adjust width considering padding */
+    padding: 8px; /* Adjusted padding */
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  .header-table select {
-    padding: 5px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+.header-table select {
+    padding: 8px; /* Adjusted padding */
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  .performance-factor-table td:first-child {
+    width: auto; /* Adjust to content */
+}
+.performance-factor-table td:first-child {
     width: 70%;
-  }
-  .performance-factor-table select {
+}
+.performance-factor-table select {
     width: 100%;
-    padding: 5px;
+    padding: 8px; /* Adjusted padding */
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  .comments-section textarea {
-    width: calc(100% - 16px);
-    height: 100px;
-    padding: 8px;
+    box-sizing: border-box;
+}
+textarea { /* General rule for all textareas */
+    resize: none; /* Disable resizing */
+}
+.comments-section textarea {
+    width: calc(100% - 20px); /* Adjust for padding */
+    height: 120px; /* Slightly taller textarea */
+    padding: 10px; /* Adjusted padding */
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 10px;
-  }
-  .signature-section input[type="text"],
-  .signature-section input[type="date"] {
+    box-sizing: border-box;
+}
+/* Styling for the attached response textarea */
+#hidden-fields textarea {
+    width: calc(100% - 20px); /* Ensure it's responsive */
+    height: 120px; /* Consistent height */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px; /* Add some margin for spacing */
+}
+.signature-section {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.signature-section p {
+    margin-bottom: 15px;
+}
+.signature-section input[type="text"],
+.signature-section input[type="date"] {
     border: none;
     border-bottom: 1px solid #0055AA; /* Blue underline for signatures */
     padding: 5px 0;
-    margin-right: 10px;
-    width: 250px; /* Consistent width for signature lines */
-  }
-  .checkbox-group label {
+    margin-right: 15px; /* More space between fields */
+    width: 280px; /* Consistent width for signature lines */
+    background: transparent;
+}
+.checkbox-group {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f2f7fc; /* Light blue background for this section */
+    border: 1px solid #dae7f3;
+    border-radius: 5px;
+}
+.checkbox-group label {
     display: block;
-    margin-bottom: 5px;
-  }
-  .footer-section {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+.footer-section {
     margin-top: 30px;
-    border-top: 1px solid #eee;
     padding-top: 20px;
-    font-size: 0.9em;
-    font-weight:bold;
-    color: #555;
-  }
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  #hidden-SDate,
-  #hidden-LDate,
-  #hidden-SIncrement,
-  #hidden-LIncrement,
-  #hidden-fields{
+    border-top: 1px solid #ddd;
+    font-size: 0.85em;
+    color: #666;
+    text-align: center; /* Center content in the footer */
+}
+input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.1); /* Slightly larger checkboxes */
+}
+
+.submit-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+/* Styling for hidden sections */
+#hidden-SDate,
+#hidden-LDate,
+#hidden-SIncrement,
+#hidden-LIncrement,
+#hidden-fields{
     display: none;
-  }
+}
+/* Additional styling for hidden sections for better appearance */
+#hidden-fields, #hidden-SIncrement, #hidden-SDate, #hidden-LIncrement, #hidden-LDate {
+    margin-left: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px dashed #c0c0c0;
+    background-color: #fdfdfd;
+    border-radius: 4px;
+}
+#hidden-SDate input, #hidden-LDate input {
+    width: auto; /* Adjust date input width */
+    margin-left: 5px;
+}

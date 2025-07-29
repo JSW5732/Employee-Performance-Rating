@@ -39,15 +39,17 @@
     </tr>
   </table>
 
-  <h3>PERFORMANCE RATINGS:</h3>
-  <p class="performance-link">
-    <a href="new performance rating pdf.pdf#page=2" target="_blank">Click here for Performance Ratings Guidelines</a>
-  </p>
+  <div class="performance-section">
+    <h3>PERFORMANCE RATINGS:</h3>
+    <p class="performance-link">
+      <a href="new performance rating pdf.pdf#page=2" target="_blank">Click here for Performance Ratings Guidelines</a>
+    </p>
 
-  <p>U = Unsatisfactory</p>
-  <p>NI = Needs Improvement</p>
-  <p>ME = Meets Expectations</p>
-  <p>EE = Exceeds Expectations</p>
+    <p>U = Unsatisfactory</p>
+    <p>NI = Needs Improvement</p>
+    <p>ME = Meets Expectations</p>
+    <p>EE = Exceeds Expectations</p>
+  </div>
 
   <table class="performance-factor-table">
     <tr>
@@ -182,7 +184,7 @@
 
   <div class="comments-section">
     <p>Provide relevant comments in the following space.</p>
-    <textarea name="comments"></textarea>
+    <textarea name="comments" maxlength="500"></textarea>
   </div>
 
   <div class="signature-section">
@@ -203,14 +205,14 @@
     <label><input type="checkbox" onclick="if(this.checked) { document.getElementById('hidden-fields').style.display = 'block'; } else { document.getElementById('hidden-fields').style.display = 'none';}" name="attach_response_checkbox"> I would like to attach a written response to this evaluation.</label>
     <div id="hidden-fields">
       <label>Attach Response:</label>
-      <textarea name="attached_response"></textarea>
+      <textarea name="attached_response" maxlength="500"></textarea>
     </div>
     <label><input type="checkbox" name="discuss_evaluation_checkbox"> I would like to discuss this performance evaluation with the reviewing officer.</label>
     <label><input type="checkbox" name="appeal_rating_checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
     <label><input type="checkbox" name="employee_refuses_sign_checkbox"> Employee refuses to sign.</label>
   </div>
 
-  <p>RATER: Indicate date below if a salary and/or longevity increment is due.</p>
+  <p>RATER: Indicate date below if a salary increment is due.</p>
 
   <div class="footer-section">
     <p>For Division Administration Use Only</p>
@@ -228,19 +230,7 @@
         <div id="hidden-SDate"><label>Date:</label><input type="date" name="salary_deferral_date"></div>
       </p>
     </div>
-      
-    <p><input type="checkbox"onclick="if(this.checked) { document.getElementById('hidden-LIncrement').style.display = 'block'; } else { document.getElementById('hidden-LIncrement').style.display = 'none';}" name="longevity_increment_checkbox"> A longevity increment is due</p>
-    <div id="hidden-LIncrement">
-      <p>Please indicate one:
-        <select onchange="if(this.value === 'Deferred') { document.getElementById('hidden-LDate').style.display = 'block'; } else { document.getElementById('hidden-LDate').style.display = 'none'; }" name="longevity_increment_status">
-          <option value="" selected disabled hidden></option>
-          <option value="Approved">Approved</option>
-          <option value="Not Approved">Not Approved</option>
-          <option value="Deferred">Deferred until </option>
-        </select>
-        <div id="hidden-LDate"><label>Date:</label><input type="date" name="longevity_deferral_date"></div>
-      </p>
-    </div>
+    
     <p>Appointing Authority Signature <input type="text" style="width: 300px;" name="appointing_authority_signature"> Date <input type="date" name="appointing_authority_date"></p>
     
     <div class="submit-button-container">
