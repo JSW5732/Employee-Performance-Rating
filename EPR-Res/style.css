@@ -129,6 +129,15 @@ textarea { /* General rule for all textareas */
     box-sizing: border-box;
     margin-top: 5px; /* Add some margin for spacing */
 }
+/* Style for character counters */
+.char-counter {
+    font-size: 0.75em;
+    color: #a0a0a0; /* Light gray color */
+    margin-top: 5px;
+    display: block; /* Make it a block element so it appears on its own line */
+    text-align: right; /* Align the counter to the right */
+    padding-right: 10px; /* Add some padding to align with textarea padding */
+}
 .signature-section {
     margin-top: 30px;
     padding: 15px;
@@ -196,14 +205,14 @@ input[type="checkbox"] {
 }
 /* Styling for hidden sections */
 #hidden-SDate,
-#hidden-LDate,
+#hidden-LDate, /* This rule is still here, but the corresponding HTML element was removed */
 #hidden-SIncrement,
-#hidden-LIncrement,
+#hidden-LIncrement, /* This rule is still here, but the corresponding HTML element was removed */
 #hidden-fields{
     display: none;
 }
 /* Additional styling for hidden sections for better appearance */
-#hidden-fields, #hidden-SIncrement, #hidden-SDate, #hidden-LIncrement, #hidden-LDate {
+#hidden-fields, #hidden-SIncrement, #hidden-SDate { /* #hidden-LIncrement and #hidden-LDate removed here too */
     margin-left: 20px;
     margin-top: 10px;
     padding: 10px;
@@ -211,7 +220,7 @@ input[type="checkbox"] {
     background-color: #fdfdfd;
     border-radius: 4px;
 }
-#hidden-SDate input, #hidden-LDate input {
+#hidden-SDate input { /* #hidden-LDate input removed here too */
     width: auto; /* Adjust date input width */
     margin-left: 5px;
 }
