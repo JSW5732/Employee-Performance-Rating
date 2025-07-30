@@ -458,15 +458,53 @@
     </div>
     
     <p>Appointing Authority Signature <input type="text" style="width: 300px;" name="appointing_authority_signature"> Date <input type="date" name="appointing_authority_date"></p>
+
+    <div class="outside-employment-button">
+      <button type="button" onclick="toggleEmploymentForm()">Click Here for Outside Employment Form</button>
+    </div>
+
+    <div id="outsideEmploymentForm" style = "display: none;">
+      <div class="form-section">
+        <table>
+          <tr>
+            <td>EMPLOYEE NAME: <input type="text" name="employee_name"></td>
+            <td>EMPLOYEE #: <input type="text" name="emplyee_number"></td>
+            <td>DEPARTMENT: <input type="text" name="department_name"></td>
+          </tr>
+          <tr>
+            <td>FJD POSITION CLASSIFICATION: <input type="text" name="fjd_position"></td>
+            <td>NAME OF IMMEDIATE SUPERVISOR: <input type="text" name="supervisor_name"></td>
+          </tr>
+        </table>
+        <label><input type="checkbox" name="change_in_supervisor">Check Here if you are completing this form because of a change in supervisor.</label>
+        <p>In addition to your FJD job, are you working for another employer or are you self-employed?
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </p>
+        <table>
+          <tr>
+            <td>NAME OF OUTSIDE/ADDITIONAL EMPLOYER: <input type="text" name="additonal_employer_name"></td>
+            <td>ADRESS OF OUTSIDE/ADDITIONAL EMPLOYER: <input type="text" name="additional_employer_adress"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
     
     <div class="submit-button-container">
       <input type="submit" name="SubmitButton" value="Submit" id="SubmitButton" class="submit-button">
     </div>
     <p>08-200 Rav. 02-13</p>
   </div>
-
 </form>
-
+  
+<script> 
+  function toggleEmploymentForm() {
+    const outsideEmploymentForm = document.getElementById("outsideEmploymentForm");
+    outsideEmploymentForm.style.display = outsideEmploymentForm.style.display === "none" ? "block" : "none";
+  }
+</script>
 <script src="./EPR-Res/script.js"></script>
 >>>>>>> bfd03684ea6ee7deb4894719ca21514fd4e0ba4c
 
