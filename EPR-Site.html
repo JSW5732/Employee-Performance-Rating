@@ -234,7 +234,7 @@
     </div>
     
     <p>Appointing Authority Signature <input type="text" style="width: 300px;" name="appointing_authority_signature"> Date <input type="date" name="appointing_authority_date"></p>
-
+    
     <div class="outside-employment-button">
       <button type="button" onclick="toggleEmploymentForm()">Click Here for Outside Employment Form</button>
     </div>
@@ -267,18 +267,62 @@
         </table>
       </div>
     </div>
-    
+
+    <div class="work-plan-button">
+        <button type="button" onclick="toggleWorkPlanForm()">Click Here for Employee Work Plan Form</button>
+    </div>
+    <div id="employeeWorkPlanForm" style="display: none;">
+        <div class="form-section">
+            <table class="work-plan-table"> <tr>
+                <td>Employee Name: <input type="text" name="work_plan_employee_name"></td>
+                <td>Payroll No. <input type="text" name="work_plan_payroll_no"></td>
+              </tr>
+              <tr>
+                <td>Supervisor/Manager Name: <input type="text" name="work_plan_supervisor_name"></td>
+                <td>Department: <input type="text" name="work_plan_department"></td>
+              </tr>
+            </table>
+            
+            <p>Performance Goals (list major goals or accountabilities - include time frame and method of measurement):</p>
+            <textarea name="performance_goals" maxlength="500" id="performance-goals-textarea"></textarea>
+            <span id="performance-goals-counter" class="char-counter">0/500</span>
+
+            <p>Training/Assistance:</p>
+            <textarea name="training_assistance" maxlength="500" id="training-assistance-textarea"></textarea>
+            <span id="training-assistance-counter" class="char-counter">0/500</span>
+
+            <p>Supervisors Comments:</p>
+            <textarea name="supervisors_comments" maxlength="500" id="supervisors-comments-textarea"></textarea>
+            <span id="supervisors-comments-counter" class="char-counter">0/500</span>
+
+            <p>Employees Comments:</p>
+            <textarea name="employees_comments" maxlength="500" id="employees-comments-textarea"></textarea>
+            <span id="employees-comments-counter" class="char-counter">0/500</span>
+
+            <p>I acknowledge that I have discussed this work plan with my supervisor, and understand the level of performance required.</p>
+            
+            <p>Signature of Employee <input type="text" style="width: 300px;" name="work_plan_employee_signature"> Date <input type="date" name="work_plan_employee_date"></p>
+            <p>Signature of Supervisor <input type="text" style="width: 300px;" name="work_plan_supervisor_signature"> Date <input type="date" name="work_plan_supervisor_date"></p>
+        </div>
+    </div>
     <div class="submit-button-container">
       <input type="submit" name="SubmitButton" value="Submit" id="SubmitButton" class="submit-button">
     </div>
     <p>08-200 Rav. 02-13</p>
   </div>
+
 </form>
   
 <script> 
   function toggleEmploymentForm() {
     const outsideEmploymentForm = document.getElementById("outsideEmploymentForm");
     outsideEmploymentForm.style.display = outsideEmploymentForm.style.display === "none" ? "block" : "none";
+  }
+
+  // New function for the Employee Work Plan Form
+  function toggleWorkPlanForm() {
+    const employeeWorkPlanForm = document.getElementById("employeeWorkPlanForm");
+    employeeWorkPlanForm.style.display = employeeWorkPlanForm.style.display === "none" ? "block" : "none";
   }
 </script>
 <script src="./EPR-Res/script.js"></script>
