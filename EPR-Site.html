@@ -252,6 +252,7 @@
             <td>NAME OF IMMEDIATE SUPERVISOR: <input type="text" name="supervisor_name"></td>
           </tr>
         </table>
+        
         <label><input type="checkbox" name="change_in_supervisor">Check Here if you are completing this form because of a change in supervisor.</label>
         <p>In addition to your FJD job, are you working for another employer or are you self-employed?
           <select>
@@ -262,11 +263,30 @@
         <table>
           <tr>
             <td>NAME OF OUTSIDE/ADDITIONAL EMPLOYER: <input type="text" name="additonal_employer_name"></td>
-            <td>ADRESS OF OUTSIDE/ADDITIONAL EMPLOYER: <input type="text" name="additional_employer_adress"></td>
+            <td>ADDRESS OF OUTSIDE/ADDITIONAL EMPLOYER: <input type="text" name="additional_employer_adress"></td>
           </tr>
         </table>
+        
+        <p>Hours of Employment for Outside/Additional Employment or commercial activity:</p>
+        <table>
+          <tr>
+            <td>Monday: <input type="text" name="monday"></td>
+            <td>Tuesday: <input type="text" name="tuesday"></td>
+            <td>Wednesday: <input type="text" name="wednesday"></td>
+            <td>Thursday: <input type="text" name="thursday"></td>
+          </tr>
+          <tr>
+            <td>Friday: <input type="text" name="friday"></td>
+            <td>Saturday: <input type="text" name="saturday"></td>
+            <td>Sunday: <input type="text" name="sunday"></td>
+          </tr>
+        </table>
+        <p>Describe duties performed and state job title in your outside employment (attach job description):</p>
+        <textarea></textarea>
+        <p>Employee's Signature: <input type="text" style="width: 300px;" name="employee_signature"> Date: <input type="date" name="employee_date"></p>
       </div>
     </div>
+    
 
     <div class="work-plan-button">
         <button type="button" onclick="toggleWorkPlanForm()">Click Here for Employee Work Plan Form</button>
