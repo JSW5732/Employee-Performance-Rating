@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Setup counters for each textarea
-    setupCharCounter('comments-textarea', 'comments-counter');
-    setupCharCounter('attached-response-textarea', 'attached-response-counter');
+    setupCharCounter('comments', 'comments-counter');
+    setupCharCounter('e1', 'attached-response-counter');
     setupCharCounter('performance-goals-textarea', 'performance-goals-counter'); // New
     setupCharCounter('training-assistance-textarea', 'training-assistance-counter'); // New
     setupCharCounter('supervisors-comments-textarea', 'supervisors-comments-counter'); // New

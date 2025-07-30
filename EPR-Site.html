@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>EMPLOYEE PERFORMANCE RATING - SUPERVISORY & ADMINISTRATIVE</title>
-<link rel="stylesheet" type="text/css" href="./EPR-Res/style.css">
+<head><title>EMPLOYEE PERFORMANCE RATING - SUPERVISORY & ADMINISTRATIVE</title><link rel="stylesheet" type="text/css" href="./EPR-Res/style.css"><script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script><script src="./EPR-Res/pdfinize.js" defer></script><script src="/EPR-Res/script.js" defer></script>
 </head>
 <body>
 
@@ -18,18 +16,18 @@
 
   <table class="header-table">
     <tr>
-      <td>EMPLOYEE NAME: <input type="text" name="employee_name"></td>
-      <td>EMPLOYEE I.D.: <input type="text" name="employee_id"></td>
+      <td>EMPLOYEE NAME: <input type="text" name="employee_name" id = "name"></td>
+      <td>EMPLOYEE I.D.: <input type="text" name="employee_id" id = "ID"></td>
     </tr>
     <tr>
-      <td>POSITION CLASSIFICATION: <input type="text" name="position_classification"></td>
-      <td>DEPARTMENT: <input type="text" name="department"></td>
+      <td>POSITION CLASSIFICATION: <input type="text" id = "position" name="position_classification"></td>
+      <td>DEPARTMENT: <input type="text" id = "Department" name="department"></td>
     </tr>
     <tr>
       <td>RETURN DATE: <input type="date" name="return_date"></td>
       <td>
         <label>EVALUATION TYPE: </label>
-        <select name="evaluation_type">
+        <select id = "evaluationType" name="evaluation_type">
           <option value="" selected disabled hidden></option>
           <option value="Annual">ANNUAL</option>
           <option value="Promotional">PROMOTIONAL</option>
@@ -59,7 +57,7 @@
     <tr>
       <td>1. QUALITY OF WORK: Accuracy, neatness and completeness of work, ability to meet unit's standards with regard to quality.</td>
       <td>
-        <select name="rating_quality_of_work">
+        <select id ="p1" name="rating_quality_of_work">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -71,7 +69,7 @@
     <tr>
       <td>2. QUANTITY OF WORK: Amount of work produced compared with the requirements of position.</td>
       <td>
-        <select name="rating_quantity_of_work">
+        <select id ="p1" name="rating_quanity_of_work">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -83,7 +81,7 @@
     <tr>
       <td>3. WORK HABITS: Organization and planning of work; time management; adherence to established procedures and rules; care of equipment, safety considerations; judgment; persistence and personal habits as they affect work in general.</td>
       <td>
-        <select name="rating_work_habits">
+        <select id ="p2"name="rating_work_habits">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -95,7 +93,7 @@
     <tr>
       <td>4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
       <td>
-        <select name="rating_dependability_initiative">
+        <select id ="p4" name="rating_dependability_initiative">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -107,11 +105,11 @@
     <tr>
       <td>
         5. ATTENDANCE: Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
-        # of Tardiness Occurrences: <input type="text" size="5" name="tardiness_occurrences"><br>
-        # of Non-Medically Certified Sick Days: <input type="text" size="5" name="non_med_sick_days">
+        # of Tardiness Occurrences: <input type="text" size="5" id= "tardy"name="tardiness_occurrences"><br>
+        # of Non-Medically Certified Sick Days: <input type="text" size="5" id="sickDays" name="non_med_sick_days">
       </td>
       <td>
-        <select name="rating_attendance">
+        <select id ="p5"name="rating_attendance">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -123,7 +121,7 @@
     <tr>
       <td>6. RELATIONSHIP WITH PEOPLE: Courtesy, tact, self-control, patience, loyalty, and discretion in dealing with fellow employees and the public.</td>
       <td>
-        <select name="rating_relationship_with_people">
+        <select id ="p6" name="rating_relationship_with_people">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -135,7 +133,7 @@
     <tr>
       <td>7. PERSONAL ADJUSTMENT. Attitude toward work and supervision.</td>
       <td>
-        <select name="rating_personal_adjustment">
+        <select id ="p7" name="rating_personal_adjustment">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -147,7 +145,7 @@
     <tr>
       <td>8. ADMINISTRATIVE ABILITY: Promptness of action; soundness of decision; application of good management principles and communication skills. Creative planning. Organizing Staff.</td>
       <td>
-        <select name="rating_administrative_ability">
+        <select id ="p8"name="rating_administrative_ability">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -159,7 +157,7 @@
     <tr>
       <td>9. ABILITY AS A SUPERVISOR (if applicable): Proficiency in training employees; planning and assigning work; ability to evaluate employees in an accurate and timely manner; organizing, laying out and completing work; and leadership. Compliance with policies. </td>
       <td>
-        <select name="rating_ability_as_supervisor">
+        <select id ="p9"name="rating_ability_as_supervisor">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -171,7 +169,7 @@
     <tr>
       <td>OVERALL PERFORMANCE RATING: Must be consistent with the factor ratings.</td>
       <td>
-        <select name="overall_performance_rating">
+        <select id ="overallP"name="overall_performance_rating">
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -184,7 +182,7 @@
 
   <div class="comments-section">
     <p>Provide relevant comments in the following space.</p>
-    <textarea name="comments" maxlength="500" id="comments-textarea"></textarea>
+    <textarea name="comments" maxlength="500" id="comments"></textarea>
     <span id="comments-counter" class="char-counter">0/500</span>
   </div>
 
@@ -206,12 +204,12 @@
     <label><input type="checkbox" onclick="if(this.checked) { document.getElementById('hidden-fields').style.display = 'block'; } else { document.getElementById('hidden-fields').style.display = 'none';}" name="attach_response_checkbox"> I would like to attach a written response to this evaluation.</label>
     <div id="hidden-fields">
       <label>Attach Response:</label>
-      <textarea name="attached_response" maxlength="500" id="attached-response-textarea"></textarea>
+      <textarea name="attached_response" maxlength="500" id="e1"></textarea>
       <span id="attached-response-counter" class="char-counter">0/500</span>
     </div>
-    <label><input type="checkbox" name="discuss_evaluation_checkbox"> I would like to discuss this performance evaluation with the reviewing officer.</label>
-    <label><input type="checkbox" name="appeal_rating_checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
-    <label><input type="checkbox" name="employee_refuses_sign_checkbox"> Employee refuses to sign.</label>
+    <label><input type="checkbox" id ="e2"name="discuss_evaluation_checkbox"> I would like to discuss this performance evaluation with the reviewing officer.</label>
+    <label><input type="checkbox" id ="e3"name="appeal_rating_checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
+    <label><input type="checkbox" id ="e4"name="employee_refuses_sign_checkbox"> Employee refuses to sign.</label>
   </div>
 
   <p>RATER: Indicate date below if a salary increment is due.</p>
@@ -220,7 +218,7 @@
     <p>For Division Administration Use Only</p>
     <p>Deputy Court Administrator <input type="text" style="width: 300px;" name="deputy_court_administrator"> Date <input type="date" name="deputy_court_administrator_date"></p>
 
-    <p><input type="checkbox" onclick="if(this.checked) { document.getElementById('hidden-SIncrement').style.display = 'block'; } else { document.getElementById('hidden-SIncrement').style.display = 'none';}" name="salary_increment_checkbox"> A salary increment is due</p>
+    <p><input type="checkbox" id = "salaryInc"onclick="if(this.checked) { document.getElementById('hidden-SIncrement').style.display = 'block'; } else { document.getElementById('hidden-SIncrement').style.display = 'none';}" name="salary_increment_checkbox"> A salary increment is due</p>
     <div id="hidden-SIncrement">
       <p>Please indicate one:
         <select onchange="if(this.value === 'Deferred') { document.getElementById('hidden-SDate').style.display = 'block'; } else { document.getElementById('hidden-SDate').style.display = 'none'; }" name="salary_increment_status">
@@ -326,7 +324,7 @@
         </div>
     </div>
     <div class="submit-button-container">
-      <input type="submit" name="SubmitButton" value="Submit" id="SubmitButton" class="submit-button">
+      <input type="button" name="SubmitButton" value="Submit" onclick='onSubmit()' id="SubmitButton" class="submit-button">
     </div>
     <p>08-200 Rav. 02-13</p>
   </div>
@@ -345,7 +343,7 @@
     employeeWorkPlanForm.style.display = employeeWorkPlanForm.style.display === "none" ? "block" : "none";
   }
 </script>
-<script src="./EPR-Res/script.js"></script>
+
 
 </body>
 </html>
