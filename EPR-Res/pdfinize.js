@@ -32,10 +32,10 @@ async function loadPDF() {
     return loadBlank;
 }
 //This function is used by the pdfinize functions to draw on the pdf
-async function editPDF(loadBlank,x, y, text, wrap){
+async function editPDF(loadBlank,x, y, text, width,fs){
     //const loadBlank = await PDFDocument.load(fs.readFileSync('.\Blanker  - Supervisory and Administrative 02-13 .pdf'));
     //const pages = loadBlank.getPages(); //theres only two pages and im only editing the first one
-    const pages = loadBlank.getPages(); // Get the pages from the loaded PDF
+    const pages = await loadBlank.getPages(); // Get the pages from the loaded PDF
     const font = await loadBlank.embedFont(PDFLib.StandardFonts.Helvetica);; //Get the font from the family
 
     for (let dx = 0; dx < 600; dx += 50) { // Draw grid lines for debugging
@@ -48,9 +48,10 @@ async function editPDF(loadBlank,x, y, text, wrap){
     pages[0].drawText(text, {
         x: x,
         y: 600 - y,
-        size: 12, // Adjust size as needed
+        size: fs, // Use a fixed size if fs is provided, otherwise use default
         color: PDFLib.rgb(0, 0, 0), // Black color
-        maxWidth: wrap ? 200 : undefined, // Wrap text if specified
+        maxWidth: width, // Wrap text if specified
+        
         font: font, // Use the embedded font
 
     });
@@ -60,28 +61,28 @@ async function editPDF(loadBlank,x, y, text, wrap){
 //PDF GENERATION: These functions are placeholders for PDF generation functionality
 //Might combine them all later, but for now they are separate for clarity
 async function pdfinize_head(blank) {
-    await editPDF(blank,30,68, document.getElementById('name').value, 200);// Add Name
-    await editPDF(blank,260,68, document.getElementById('position').value, 200);// Add Position
-    await editPDF(blank,400,68, document.getElementById('ID').value, 200);// Add ID
-    await editPDF(blank,470,68, document.getElementById('department').value, 200); // Add Department
-    await editPDF(blank,635,68, document.getElementById('evaluationType').value, 200); // Add Evaluation Type
+    await editPDF(blank,30,68, document.getElementById('name').value, 200,12);// Add Name
+    await editPDF(blank,260,68, document.getElementById('position').value, 200,12);// Add Position
+    await editPDF(blank,400,68, document.getElementById('ID').value, 200,12);// Add ID
+    await editPDF(blank,470,68, document.getElementById('department').value, 200,12); // Add Department
+    await editPDF(blank,635,68, document.getElementById('evaluationType').value, 200,12); // Add Evaluation Type
     // This function is called to convert the head to PDF
     //IDS INCLUDE IN THIS ORDER Name, Position, ID, Department, EvaluationType.
     //alert("PDF generation is not implemented yet.");
 }
 async function pdfinize_p(blank) {
-    await editPDF(blank,667,115, document.getElementById('p1').value, 200); // p1
-    await editPDF(blank,667,126, document.getElementById('p2').value, 200);// p2
-    await editPDF(blank,667,140, document.getElementById('p3').value, 200);// p3
-    await editPDF(blank,667,158, document.getElementById('p4').value, 200);// p4
-    await editPDF(blank,230,200, document.getElementById('tardy').value, 200);// tardy
-    await editPDF(blank,485,200, document.getElementById('sickDays').value, 200);// sick days
-    await editPDF(blank,667,187, document.getElementById('p5').value, 200);// p5
-    await editPDF(blank,667,215, document.getElementById('p6').value, 200);// p6
-    await editPDF(blank,667,228, document.getElementById('p7').value, 200);// p7
-    await editPDF(blank,667,240, document.getElementById('p8').value, 200);// p8
-    await editPDF(blank,667,255, document.getElementById('p9').value, 200);// p9
-    await editPDF(blank,667,275, document.getElementById('overallP').value, 200);// overall performance
+    await editPDF(blank,667,115-8, document.getElementById('p1').value, 200,8); // p1
+    await editPDF(blank,667,126-7, document.getElementById('p2').value, 200,8);// p2
+    await editPDF(blank,667,140-6, document.getElementById('p3').value, 200,8);// p3
+    await editPDF(blank,667,158-8, document.getElementById('p4').value, 200,8);// p4
+    await editPDF(blank,228,200-10, document.getElementById('tardy').value, 200,8);// tardy
+    await editPDF(blank,485,200-10, document.getElementById('sickDays').value, 200,8);// sick days
+    await editPDF(blank,667,187-8, document.getElementById('p5').value, 200,8);// p5
+    await editPDF(blank,667,215-8, document.getElementById('p6').value, 200,8);// p6
+    await editPDF(blank,667,228-8, document.getElementById('p7').value, 200,8);// p7
+    await editPDF(blank,667,240-8, document.getElementById('p8').value, 200,8);// p8
+    await editPDF(blank,667,255-5, document.getElementById('p9').value, 200,8);// p9
+    await editPDF(blank,667,275-8, document.getElementById('overallP').value, 200,8);// overall performance
     // This function is called to convert the performance factors to PDF
     //IDS INCLUDE IN THIS ORDER p1-p5, Tardy, SickDays, p6-p9, OverallP
     //alert("PDF generation is not implemented yet.");
@@ -90,11 +91,70 @@ async function pdfinize_body(blank) {
     // This function is called to convert the comments and signatures to PDF
     //IDS INCLUDE IN THIS ORDER comments,e1-e4
     //alert("PDF generation is not implemented yet.");
+    const pages = await blank.getPages();
+    await editPDF(blank, 35, 305, document.getElementById('comments').value, 68*6,8); // Attached Comments
+        //x: 474, e1 box coords
+        //y: 432,
+    if (document.getElementById('e2').checked) {
+        pages[0].drawRectangle({
+            x: 472,
+            y: 608 - 443,
+            width: 5,
+            height: 5,
+            color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+        });    
+    }
+    if (document.getElementById('e3').checked) {
+    pages[0].drawRectangle({
+        x: 472,
+        y: 608 - 453,
+        width: 5,
+        height: 5,
+        color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+    });
+    }
+    if (document.getElementById('e4').checked) {
+    pages[0].drawRectangle({
+        x: 472,
+        y: 608- 474,
+        width: 5,
+        height: 5,
+        color: PDFLib.rgb(0, 0, 0) // RGB values from 0 to 1
+    });
+    }
 }
 async function pdfinize_feet(blank) {
     // This function is called to convert the salary increment to PDF
     //IDS INCLUDE IN THIS ORDER SalaryInc
     //alert("PDF generation is not implemented yet.");
+    const pages = await blank.getPages();
+    if (document.getElementById('salaryInc').value === "A") {
+    pages[0].drawRectangle({
+        x: 315,
+        y: 609 - 520,
+        width: 5,
+        height: 5,
+        color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+    });    
+    }
+    if (document.getElementById('salaryInc').value === "N") {
+    pages[0].drawRectangle({
+        x: 372,
+        y: 609 - 520,
+        width: 5,
+        height: 5,
+        color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+    });
+    }
+    if (document.getElementById('salaryInc').value === "D") {
+    pages[0].drawRectangle({
+        x: 447,
+        y: 609- 520,
+        width: 5,
+        height: 5,
+        color: PDFLib.rgb(0, 0, 0) // RGB values from 0 to 1
+    });
+    }
 }
 
 
