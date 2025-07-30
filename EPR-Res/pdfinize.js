@@ -10,35 +10,41 @@ const loadBlanker = async () => {
     return await response.arrayBuffer();
 };
 //FORMATING: const selectedValue = document.getElementById('mySelect').value;
-function onSubmit() {
+async function onSubmit() {
     // This function is called when the form is submitted
     // It can be thought of as the main function.
     alert("Form submitted successfully!");
-    pdfinize_head();
-    pdfinize_p();
-    pdfinize_body();
-    pdfinize_feet();
-    pdf_print();
+    const blank = await loadPDF()
+    await pdfinize_head(blank);
+    await pdfinize_p(blank);
+    await pdfinize_body(blank);
+    await pdfinize_feet(blank);
+    await pdf_print(blank);
 
 }
 
-
-//This function is used by the pdfinize functions to draw on the pdf
-async function editPDF(x, y, text, wrap){
-    //const loadBlank = await PDFDocument.load(fs.readFileSync('.\Blanker  - Supervisory and Administrative 02-13 .pdf'));
-    //const pages = loadBlank.getPages(); //theres only two pages and im only editing the first one
+async function loadPDF() {
+    // This function is called to load the PDF document
     const response = await fetch('./EPR-Res/Blanker  - Supervisory and Administrative 02-13 .pdf');
     const pdfByte = await response.arrayBuffer();
     const { PDFDocument, rgb, StandardFonts } = PDFLib;
     const loadBlank = await PDFDocument.load(pdfByte); // Load the PDF document
+    return loadBlank;
+}
+//This function is used by the pdfinize functions to draw on the pdf
+async function editPDF(loadBlank,x, y, text, wrap){
+    //const loadBlank = await PDFDocument.load(fs.readFileSync('.\Blanker  - Supervisory and Administrative 02-13 .pdf'));
+    //const pages = loadBlank.getPages(); //theres only two pages and im only editing the first one
     const pages = loadBlank.getPages(); // Get the pages from the loaded PDF
     const font = await loadBlank.embedFont(StandardFonts.Helvetica); //Get the font from the family
-    for (let x = 0; x < 600; x += 50) {
-        pages[0].drawText(`${x}`, { x, y: 10, size: 8 });
+
+    for (let dx = 0; dx < 600; dx += 50) { // Draw grid lines for debugging
+        pages[0].drawText(`${dx}`, { dx, dy: 10, size: 8 });
     }
-    for (let y = 0; y < 800; y += 50) {
-        pages[0].drawText(`${y}`, { x: 10, y, size: 8 });
+    for (let dy = 0; dy < 800; dy += 50) {
+        pages[0].drawText(`${dy}`, { dx: 10, dy, size: 8 });
     }
+
     pages[0].drawText(text, {
         x: x,
         y: 600 - y,
@@ -49,34 +55,31 @@ async function editPDF(x, y, text, wrap){
 
     });
     //fs.writeFileSync('./Filled Supervisory.pdf', pdfFill); // Save the modified PDF TO THE DISC. FOR THE ACTUAL SITE WE WILL BE EXPORTING TO A BLOB
-    const pdfFill = await loadBlank.save();
-    const blob = new Blob([pdfFill], { type: 'application/pdf' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'Filled_Supervisory_Performance_Review.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    return loadBlank; // Return the modified PDF document
 }
 //PDF GENERATION: These functions are placeholders for PDF generation functionality
 //Might combine them all later, but for now they are separate for clarity
-function pdfinize_head() {
-    editPDF(30,68, document.getElementById('name').value, 200); // Add Name
+async function pdfinize_head(blank) {
+    await editPDF(blank,30,68, document.getElementById('name').value, 200);// Add Name
+    await editPDF(blank,30,68, document.getElementById('name').value, 200);
+    await editPDF(blank,30,68, document.getElementById('name').value, 200);
+    await editPDF(blank,30,68, document.getElementById('name').value, 200); 
+
     // This function is called to convert the head to PDF
     //IDS INCLUDE IN THIS ORDER Name, Position, ID, Department, EvaluationType.
     //alert("PDF generation is not implemented yet.");
 }
-function pdfinize_p() {
+async function pdfinize_p(blank) {
     // This function is called to convert the performance factors to PDF
     //IDS INCLUDE IN THIS ORDER p1-p5, Tardy, SickDays, p6-p9, OverallP
     //alert("PDF generation is not implemented yet.");
 }
-function pdfinize_body() {
+async function pdfinize_body(blank) {
     // This function is called to convert the comments and signatures to PDF
     //IDS INCLUDE IN THIS ORDER comments,e1-e4
     //alert("PDF generation is not implemented yet.");
 }
-function pdfinize_feet() {
+async function pdfinize_feet(blank) {
     // This function is called to convert the salary increment to PDF
     //IDS INCLUDE IN THIS ORDER SalaryInc
     //alert("PDF generation is not implemented yet.");
@@ -84,7 +87,15 @@ function pdfinize_feet() {
 
 
 //PDF EXPORT:
-function pdf_print() {
+async function pdf_print(Full) {
     // This function is called export the pdf to the user
+    const pdfFill = await Full.save();
+    const blob = new Blob([pdfFill], { type: 'application/pdf' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'Filled_Supervisory_Performance_Review.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     alert("Export functionality is not implemented yet.");
 }
