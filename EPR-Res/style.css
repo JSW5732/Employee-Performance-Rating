@@ -183,6 +183,22 @@ input[type="checkbox"] {
     transform: scale(1.1); /* Slightly larger checkboxes */
 }
 
+#outsideEmploymentForm {
+    display: none;
+    margin-top: 25px;
+    padding: 15px;
+}
+.outside-employment-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
 .submit-button-container {
     text-align: center;
     margin-top: 30px;
