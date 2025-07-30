@@ -36,7 +36,7 @@ async function editPDF(loadBlank,x, y, text, wrap){
     //const loadBlank = await PDFDocument.load(fs.readFileSync('.\Blanker  - Supervisory and Administrative 02-13 .pdf'));
     //const pages = loadBlank.getPages(); //theres only two pages and im only editing the first one
     const pages = loadBlank.getPages(); // Get the pages from the loaded PDF
-    const font = await loadBlank.embedFont(StandardFonts.Helvetica); //Get the font from the family
+    const font = await loadBlank.embedFont(PDFLib.StandardFonts.Helvetica);; //Get the font from the family
 
     for (let dx = 0; dx < 600; dx += 50) { // Draw grid lines for debugging
         pages[0].drawText(`${dx}`, { dx, dy: 10, size: 8 });
@@ -49,7 +49,7 @@ async function editPDF(loadBlank,x, y, text, wrap){
         x: x,
         y: 600 - y,
         size: 12, // Adjust size as needed
-        color: rgb(0, 0, 0), // Black color
+        color: PDFLib.rgb(0, 0, 0), // Black color
         maxWidth: wrap ? 200 : undefined, // Wrap text if specified
         font: font, // Use the embedded font
 
@@ -61,15 +61,27 @@ async function editPDF(loadBlank,x, y, text, wrap){
 //Might combine them all later, but for now they are separate for clarity
 async function pdfinize_head(blank) {
     await editPDF(blank,30,68, document.getElementById('name').value, 200);// Add Name
-    await editPDF(blank,30,68, document.getElementById('name').value, 200);
-    await editPDF(blank,30,68, document.getElementById('name').value, 200);
-    await editPDF(blank,30,68, document.getElementById('name').value, 200); 
-
+    await editPDF(blank,260,68, document.getElementById('position').value, 200);// Add Position
+    await editPDF(blank,400,68, document.getElementById('ID').value, 200);// Add ID
+    await editPDF(blank,470,68, document.getElementById('department').value, 200); // Add Department
+    await editPDF(blank,635,68, document.getElementById('evaluationType').value, 200); // Add Evaluation Type
     // This function is called to convert the head to PDF
     //IDS INCLUDE IN THIS ORDER Name, Position, ID, Department, EvaluationType.
     //alert("PDF generation is not implemented yet.");
 }
 async function pdfinize_p(blank) {
+    await editPDF(blank,667,115, document.getElementById('p1').value, 200); // p1
+    await editPDF(blank,667,126, document.getElementById('p2').value, 200);// p2
+    await editPDF(blank,667,140, document.getElementById('p3').value, 200);// p3
+    await editPDF(blank,667,158, document.getElementById('p4').value, 200);// p4
+    await editPDF(blank,230,200, document.getElementById('tardy').value, 200);// tardy
+    await editPDF(blank,485,200, document.getElementById('sickDays').value, 200);// sick days
+    await editPDF(blank,667,187, document.getElementById('p5').value, 200);// p5
+    await editPDF(blank,667,215, document.getElementById('p6').value, 200);// p6
+    await editPDF(blank,667,228, document.getElementById('p7').value, 200);// p7
+    await editPDF(blank,667,240, document.getElementById('p8').value, 200);// p8
+    await editPDF(blank,667,255, document.getElementById('p9').value, 200);// p9
+    await editPDF(blank,667,275, document.getElementById('overallP').value, 200);// overall performance
     // This function is called to convert the performance factors to PDF
     //IDS INCLUDE IN THIS ORDER p1-p5, Tardy, SickDays, p6-p9, OverallP
     //alert("PDF generation is not implemented yet.");
@@ -97,5 +109,5 @@ async function pdf_print(Full) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    alert("Export functionality is not implemented yet.");
+    alert("Export successful! Check your downloads folder.");
 }
