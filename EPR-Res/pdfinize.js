@@ -9,6 +9,16 @@ const loadBlanker = async () => {
     if (!response.ok) throw new Error('Failed to load PDF');
     return await response.arrayBuffer();
 };
+const loadWorkPlan = async () => {
+    const response = await fetch('.\EPR-Res\Employee Work Plan form.pdf'); // Relative to the site root
+    if (!response.ok) throw new Error('Failed to load PDF');
+    return await response.arrayBuffer();
+};
+const loadOutsideEmployment = async () => {
+    const response = await fetch('.\EPR-Res\Outside Employment.pdf'); // Relative to the site root
+    if (!response.ok) throw new Error('Failed to load PDF');
+    return await response.arrayBuffer();
+};
 //FORMATING: const selectedValue = document.getElementById('mySelect').value;
 async function onSubmit() {
     // This function is called when the form is submitted
