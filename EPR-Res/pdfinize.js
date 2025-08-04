@@ -157,6 +157,21 @@ async function pdfinize_feet(blank) {
     }
 }
 
+async function pdfinize_signatures(blank) {
+    // This function is called to convert the signatures to PDF
+}
+
+async function pdfinize_goals(blank) {
+    // This function is called to convert the performance goals to PDF
+}
+async function pdfinize_oemp(blank) {
+    // This function is called to convert the outside employment to PDF
+    //const pages = await blank.getPages();
+    //await editPDF(blank, 35, 500, document.getElementById('performance-goals-textarea').value, 68*6,8); // Performance Goals
+    //await editPDF(blank, 35, 580, document.getElementById('training-assistance-textarea').value, 68*6,8); // Training Assistance
+    //await editPDF(blank, 35, 660, document.getElementById('supervisors-comments-textarea').value, 68*6,8); // Supervisor's Comments
+    //await editPDF(blank, 35, 740, document.getElementById('employees-comments-textarea').value, 68*6,8); // Employee's Comments
+}
 
 //PDF EXPORT:
 async function pdf_print(Full) {
