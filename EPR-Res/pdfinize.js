@@ -206,7 +206,20 @@ async function pdfinize_oemp(outsideEmployment) {
     await editPDF(outsideEmployment, 35, 250, document.getElementById('position').value, 68*6,10); // Position
     await editPDF(outsideEmployment, 35, 300, document.getElementById('SuperV').value, 68*6,10); // Supervisor
     //checkbox
-    await editPDF(outsideEmployment, 35, 350, document.getElementById('outside').value, 68*6,10); // Outside Employment Status
+    if (document.getElementById('cSup').checked) {
+        pages[0].drawRectangle({
+            x: 472,
+            y: 608 - 453,
+            width: 5,
+            height: 5,
+            color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+    });
+    }
+    if (document.getElementById('outside').value === "Yes") {
+        await editPDF(outsideEmployment, 35, 350, "X", 68*6,10); // Outside Employment Status Positive
+    } else {
+        await editPDF(outsideEmployment, 35, 350, "X", 68*6,10); // Outside Employment Status Negative
+    }
     await editPDF(outsideEmployment, 35, 400, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Name
     await editPDF(outsideEmployment, 35, 450, document.getElementById('oAdd').value, 68*6,10); // Outside Employment Address
     await editPDF(outsideEmployment, 35, 500, document.getElementById('job-description-textarea').value, 68*6,10); // Job Description

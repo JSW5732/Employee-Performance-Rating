@@ -251,7 +251,7 @@
           </tr>
         </table>
         
-        <label><input type="checkbox" name="change_in_supervisor">Check Here if you are completing this form because of a change in supervisor.</label>
+        <label><input type="checkbox" id = "cSup" name="change_in_supervisor">Check Here if you are completing this form because of a change in supervisor.</label>
         <p>In addition to your FJD job, are you working for another employer or are you self-employed?
           <select id = "outside" onchange="if(this.value === 'Yes') { document.getElementById('hidden-emp').style.display = 'block'; } else { document.getElementById('hidden-emp').style.display = 'none'; }" id="outsideEmployment" name="outside_employment_status">
             <option value="" selected disabled hidden></option>
