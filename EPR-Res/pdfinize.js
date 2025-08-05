@@ -46,6 +46,7 @@ async function onSubmit() {
     await pdf_print(workPlan, "Filled_Employee_Work_Plan"); // Export the work plan PDF
     const outsideEmployment = await loadPDF('./EPR-Res/Outside Employment.pdf');
     await pdfinize_oemp(outsideEmployment);
+    await pdf_print(outsideEmployment, "Filled_Outside_Employment_Disclosure_Form"); // Export the outside employment PDF
 
     
 
@@ -116,32 +117,41 @@ async function pdfinize_body(blank) {
     //alert("PDF generation is not implemented yet.");
     const pages = await blank.getPages();
     await editPDF(blank, 35, 305, document.getElementById('comments').value, 68*6,8); // Attached Comments
-        //x: 474, e1 box coords
+        //x: 472, e1 box coords
         //y: 432,
+    if (document.getElementById('e0').checked) {
+        pages[0].drawRectangle({
+            x: 471,
+            y: 608 - 432,
+            width: 7,
+            height: 7,
+            color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
+        });    
+    }
     if (document.getElementById('e2').checked) {
         pages[0].drawRectangle({
-            x: 472,
+            x: 471,
             y: 608 - 443,
-            width: 5,
-            height: 5,
+            width: 7,
+            height: 7,
             color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
         });    
     }
     if (document.getElementById('e3').checked) {
     pages[0].drawRectangle({
-        x: 472,
+        x: 471,
         y: 608 - 453,
-        width: 5,
-        height: 5,
+        width: 7,
+        height: 7,
         color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
     });
     }
     if (document.getElementById('e4').checked) {
     pages[0].drawRectangle({
-        x: 472,
+        x: 471,
         y: 608- 474,
-        width: 5,
-        height: 5,
+        width: 7,
+        height: 7,
         color: PDFLib.rgb(0, 0, 0) // RGB values from 0 to 1
     });
     }
@@ -200,36 +210,36 @@ async function pdfinize_goals(workPlan) {
 async function pdfinize_oemp(outsideEmployment) {
     // This function is called to convert the outside employment to PDF
     const pages = await outsideEmployment.getPages();
-    await editPDF(outsideEmployment, 35, 100, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Name
-    await editPDF(outsideEmployment, 35, 150, document.getElementById("pNum").value, 68*6,10); // Pnum
-    await editPDF(outsideEmployment, 35, 200, document.getElementById('department').value, 68*6,10); // Department
-    await editPDF(outsideEmployment, 35, 250, document.getElementById('position').value, 68*6,10); // Position
-    await editPDF(outsideEmployment, 35, 300, document.getElementById('SuperV').value, 68*6,10); // Supervisor
+    await editPDF(outsideEmployment, 160, 252-190, document.getElementById('name').value, 68*6,10); // Outside Employment Name
+    await editPDF(outsideEmployment, 127, 267-190, document.getElementById("pNum").value, 68*6,10); // Pnum
+    await editPDF(outsideEmployment, 257, 267-190, document.getElementById('department').value, 68*6,10); // Department
+    await editPDF(outsideEmployment, 474, 267-190, document.getElementById('position').value, 68*6,10); // Position
+    await editPDF(outsideEmployment, 237, 280-190, document.getElementById('SuperV').value, 68*6,10); // Supervisor
     //checkbox
     if (document.getElementById('cSup').checked) {
         pages[0].drawRectangle({
-            x: 472,
-            y: 608 - 453,
-            width: 5,
-            height: 5,
+            x: 100,
+            y: 790 - 296,
+            width: 6,
+            height: 6,
             color: PDFLib.rgb(0., 0., 0.) // RGB values from 0 to 1
     });
     }
     if (document.getElementById('outside').value === "Yes") {
-        await editPDF(outsideEmployment, 35, 350, "X", 68*6,10); // Outside Employment Status Positive
+        await editPDF(outsideEmployment, 98, 345-190, "X", 68*6,10); // Outside Employment Status Positive
     } else {
-        await editPDF(outsideEmployment, 35, 350, "X", 68*6,10); // Outside Employment Status Negative
+        await editPDF(outsideEmployment, 95, 328-190, "X", 68*6,10); // Outside Employment Status Negative
     }
-    await editPDF(outsideEmployment, 35, 400, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Name
-    await editPDF(outsideEmployment, 35, 450, document.getElementById('oAdd').value, 68*6,10); // Outside Employment Address
-    await editPDF(outsideEmployment, 35, 500, document.getElementById('job-description-textarea').value, 68*6,10); // Job Description
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('m').value, 68*6,10);
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('tu').value, 68*6,10); 
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('w').value, 68*6,10);
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('th').value, 68*6,10);
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('f').value, 68*6,10);
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('sa').value, 68*6,10);
-    await editPDF(outsideEmployment, 35, 550, document.getElementById('su').value, 68*6,10);
+    await editPDF(outsideEmployment, 260, 362-190, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Company Name
+    await editPDF(outsideEmployment, 268, 380-190, document.getElementById('oAdd').value, 68*6,10); // Outside Employment Address
+    await editPDF(outsideEmployment, 70, 465-190, document.getElementById('job-description-textarea').value, 68*6,10); // Job Description
+    await editPDF(outsideEmployment, 142, 415-190, document.getElementById('m').value, 68*6,10);
+    await editPDF(outsideEmployment, 275, 415-190, document.getElementById('tu').value, 68*6,10); 
+    await editPDF(outsideEmployment, 400, 415-190, document.getElementById('w').value, 68*6,10);
+    await editPDF(outsideEmployment, 507, 415-190, document.getElementById('th').value, 68*6,10);
+    await editPDF(outsideEmployment, 142, 432-190, document.getElementById('f').value, 68*6,10);
+    await editPDF(outsideEmployment, 277, 432-190, document.getElementById('sa').value, 68*6,10);
+    await editPDF(outsideEmployment, 382, 432-190, document.getElementById('su').value, 68*6,10);
 
 }
 
