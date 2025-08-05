@@ -24,7 +24,7 @@ async function onSubmit() {
     // This function is called when the form is submitted
     // It can be thought of as the main function.
     alert("Form submitted successfully!");
-    const blank = await loadPDF()
+    const blank = await loadPDF('./EPR-Res/Blanker  - Supervisory and Administrative 02-13 .pdf')
     await pdfinize_head(blank);
     await pdfinize_p(blank);
     await pdfinize_body(blank);
@@ -33,9 +33,9 @@ async function onSubmit() {
 
 }
 
-async function loadPDF() {
+async function loadPDF(name) {
     // This function is called to load the PDF document
-    const response = await fetch('./EPR-Res/Blanker  - Supervisory and Administrative 02-13 .pdf');
+    const response = await fetch(name);
     const pdfByte = await response.arrayBuffer();
     const { PDFDocument, rgb, StandardFonts } = PDFLib;
     const loadBlank = await PDFDocument.load(pdfByte); // Load the PDF document
