@@ -3,6 +3,16 @@
 
 //import { PDFDocument, rgb } from 'pdf-lib';
 //import { PDFDocument, rgb, StandardFonts } from 'https://cdn.skypack.dev/pdf-lib';
+/* Use this to add grid lines to the PDF for debugging purposes
+
+    const pages = await workPlan.getPages();
+        for (let x = 0; x < 600; x += 50) { // Draw grid lines for debugging
+        pages[0].drawText(`${x}`, { x, y: 10, size: 8 });
+    }
+    for (let y = 0; y < 800; y += 50) {
+        pages[0].drawText(`${y}`, { x: 10, y, size: 8 });
+    }
+*/
 //import fs from 'fs';
 const loadBlanker = async () => {
     const response = await fetch('.\EPR-Res\Blanker  - Supervisory and Administrative 02-13 .pdf'); // Relative to the site root
@@ -23,13 +33,21 @@ const loadOutsideEmployment = async () => {
 async function onSubmit() {
     // This function is called when the form is submitted
     // It can be thought of as the main function.
-    alert("Form submitted successfully!");
+    alert("Form submitted successfully!"); //This just lets me refresh the page to cancel a download if I forgot to do something
     const blank = await loadPDF('./EPR-Res/Blanker  - Supervisory and Administrative 02-13 .pdf')
     await pdfinize_head(blank);
     await pdfinize_p(blank);
     await pdfinize_body(blank);
     await pdfinize_feet(blank);
-    await pdf_print(blank);
+    // await pdf_print(blank); temp disabled for testing
+// Now call all the pdfinize functions for the other two PDFs
+    const workPlan = await loadPDF('./EPR-Res/Employee Work Plan form.pdf');
+    await pdfinize_goals(workPlan);
+    await pdf_print(workPlan); // Export the work plan PDF
+    const outsideEmployment = await loadPDF('./EPR-Res/Outside Employment.pdf');
+    await pdfinize_oemp(outsideEmployment);
+
+    
 
 }
 
@@ -48,12 +66,7 @@ async function editPDF(loadBlank,x, y, text, width,fs){
     const pages = await loadBlank.getPages(); // Get the pages from the loaded PDF
     const font = await loadBlank.embedFont(PDFLib.StandardFonts.Helvetica);; //Get the font from the family
 
-    for (let dx = 0; dx < 600; dx += 50) { // Draw grid lines for debugging
-        pages[0].drawText(`${dx}`, { dx, dy: 10, size: 8 });
-    }
-    for (let dy = 0; dy < 800; dy += 50) {
-        pages[0].drawText(`${dy}`, { dx: 10, dy, size: 8 });
-    }
+
 
     pages[0].drawText(text, {
         x: x,
@@ -171,8 +184,18 @@ async function pdfinize_signatures(blank) {
     // This function is called to convert the signatures to PDF
 }
 
-async function pdfinize_goals(blank) {
+async function pdfinize_goals(workPlan) {
     // This function is called to convert the performance goals to PDF
+    //ids include in this order Pnum, SuperV performance-goals-textarea, training-assistance-textarea, supervisors-comments-textarea, employees-comments-textarea
+    const pages = await workPlan.getPages();
+    await editPDF(workPlan, 150, 108-190, document.getElementById('name').value, 68*6,12); // Name
+    await editPDF(workPlan, 128, 163-190, document.getElementById('department').value, 68*6,12); // Department
+    await editPDF(workPlan, 50, 230-190, document.getElementById('performance-goals-textarea').value, 68*6,10); // Performance Goals
+    await editPDF(workPlan, 473, 108-190, document.getElementById('pNum').value, 68*6,12); // Pnum
+    await editPDF(workPlan, 45, 390-190, document.getElementById('training-assistance-textarea').value, 68*6,10); // Training Assistance
+    await editPDF(workPlan, 45, 460-190, document.getElementById('supervisors-comments-textarea').value, 68*6,8); // Supervisor's Comments
+    await editPDF(workPlan, 45, 515-190, document.getElementById('employees-comments-textarea').value, 68*6,8); // Employee's Comments
+    await editPDF(workPlan, 198, 136-190, document.getElementById('SuperV').value, 68*6,12); // Supervisor
 }
 async function pdfinize_oemp(blank) {
     // This function is called to convert the outside employment to PDF
