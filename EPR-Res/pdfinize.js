@@ -65,7 +65,7 @@ async function editPDF(loadBlank,x, y, text, width,fs){
     //const loadBlank = await PDFDocument.load(fs.readFileSync('.\Blanker  - Supervisory and Administrative 02-13 .pdf'));
     //const pages = loadBlank.getPages(); //theres only two pages and im only editing the first one
     const pages = await loadBlank.getPages(); // Get the pages from the loaded PDF
-    const font = await loadBlank.embedFont(PDFLib.StandardFonts.Helvetica);; //Get the font from the family
+    const font = await loadBlank.embedFont(PDFLib.StandardFonts.Helvetica); //Get the font from the family
 
 
 
