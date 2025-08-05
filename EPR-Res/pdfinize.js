@@ -190,7 +190,7 @@ async function pdfinize_goals(workPlan) {
     const pages = await workPlan.getPages();
     await editPDF(workPlan, 150, 108-190, document.getElementById('name').value, 68*6,12); // Name
     await editPDF(workPlan, 128, 163-190, document.getElementById('department').value, 68*6,12); // Department
-    await editPDF(workPlan, 50, 230-190, document.getElementById('performance-goals-textarea').value, 68*6,10); // Performance Goals
+    await editPDF(workPlan, 45, 230-190, document.getElementById('performance-goals-textarea').value, 68*6,10); // Performance Goals
     await editPDF(workPlan, 473, 108-190, document.getElementById('pNum').value, 68*6,12); // Pnum
     await editPDF(workPlan, 45, 390-190, document.getElementById('training-assistance-textarea').value, 68*6,10); // Training Assistance
     await editPDF(workPlan, 45, 460-190, document.getElementById('supervisors-comments-textarea').value, 68*6,8); // Supervisor's Comments
