@@ -197,13 +197,27 @@ async function pdfinize_goals(workPlan) {
     await editPDF(workPlan, 45, 515-190, document.getElementById('employees-comments-textarea').value, 68*6,8); // Employee's Comments
     await editPDF(workPlan, 198, 136-190, document.getElementById('SuperV').value, 68*6,12); // Supervisor
 }
-async function pdfinize_oemp(blank) {
+async function pdfinize_oemp(outsideEmployment) {
     // This function is called to convert the outside employment to PDF
-    //const pages = await blank.getPages();
-    //await editPDF(blank, 35, 500, document.getElementById('performance-goals-textarea').value, 68*6,8); // Performance Goals
-    //await editPDF(blank, 35, 580, document.getElementById('training-assistance-textarea').value, 68*6,8); // Training Assistance
-    //await editPDF(blank, 35, 660, document.getElementById('supervisors-comments-textarea').value, 68*6,8); // Supervisor's Comments
-    //await editPDF(blank, 35, 740, document.getElementById('employees-comments-textarea').value, 68*6,8); // Employee's Comments
+    const pages = await outsideEmployment.getPages();
+    await editPDF(outsideEmployment, 35, 100, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Name
+    await editPDF(outsideEmployment, 35, 150, document.getElementById("pNum").value, 68*6,10); // Pnum
+    await editPDF(outsideEmployment, 35, 200, document.getElementById('department').value, 68*6,10); // Department
+    await editPDF(outsideEmployment, 35, 250, document.getElementById('position').value, 68*6,10); // Position
+    await editPDF(outsideEmployment, 35, 300, document.getElementById('SuperV').value, 68*6,10); // Supervisor
+    //checkbox
+    await editPDF(outsideEmployment, 35, 350, document.getElementById('outside').value, 68*6,10); // Outside Employment Status
+    await editPDF(outsideEmployment, 35, 400, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Name
+    await editPDF(outsideEmployment, 35, 450, document.getElementById('oAdd').value, 68*6,10); // Outside Employment Address
+    await editPDF(outsideEmployment, 35, 500, document.getElementById('job-description-textarea').value, 68*6,10); // Job Description
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('m').value, 68*6,10);
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('tu').value, 68*6,10); 
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('w').value, 68*6,10);
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('th').value, 68*6,10);
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('f').value, 68*6,10);
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('sa').value, 68*6,10);
+    await editPDF(outsideEmployment, 35, 550, document.getElementById('su').value, 68*6,10);
+
 }
 
 //PDF EXPORT:
