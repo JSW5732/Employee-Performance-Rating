@@ -39,11 +39,11 @@ async function onSubmit() {
     await pdfinize_p(blank);
     await pdfinize_body(blank);
     await pdfinize_feet(blank);
-    // await pdf_print(blank); temp disabled for testing
+    await pdf_print(blank, "Filled_Supervisory_Performance_Review"); 
 // Now call all the pdfinize functions for the other two PDFs
     const workPlan = await loadPDF('./EPR-Res/Employee Work Plan form.pdf');
     await pdfinize_goals(workPlan);
-    await pdf_print(workPlan); // Export the work plan PDF
+    await pdf_print(workPlan, "Filled_Employee_Work_Plan"); // Export the work plan PDF
     const outsideEmployment = await loadPDF('./EPR-Res/Outside Employment.pdf');
     await pdfinize_oemp(outsideEmployment);
 
@@ -207,13 +207,13 @@ async function pdfinize_oemp(blank) {
 }
 
 //PDF EXPORT:
-async function pdf_print(Full) {
+async function pdf_print(Full, filename) {
     // This function is called export the pdf to the user
     const pdfFill = await Full.save();
     const blob = new Blob([pdfFill], { type: 'application/pdf' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = 'Filled_Supervisory_Performance_Review.pdf';
+    link.download = filename + '.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
