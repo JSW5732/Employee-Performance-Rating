@@ -193,6 +193,9 @@ async function pdfinize_feet(blank) {
 async function pdfinize_signatures(blank) {
     // This function is called to convert the signatures to PDF
 }
+async function pdfinize_dates(blank) {
+    // This function is called to convert the dates to PDF
+}
 
 async function pdfinize_goals(workPlan) {
     // This function is called to convert the performance goals to PDF
