@@ -73,9 +73,9 @@ async function editPDF(loadBlank,x, y, text, width,fs){
         x: x,
         y: 600 - y,
         size: fs, // Use a fixed size if fs is provided, otherwise use default
+        lineHeight: 1.7 * fs, // Set line height based on font size
         color: PDFLib.rgb(0, 0, 0), // Black color
         maxWidth: width, // Wrap text if specified
-        
         font: font, // Use the embedded font
 
     });
@@ -198,23 +198,23 @@ async function pdfinize_goals(workPlan) {
     // This function is called to convert the performance goals to PDF
     //ids include in this order Pnum, SuperV performance-goals-textarea, training-assistance-textarea, supervisors-comments-textarea, employees-comments-textarea
     const pages = await workPlan.getPages();
-    await editPDF(workPlan, 150, 108-190, document.getElementById('name').value, 68*6,12); // Name
-    await editPDF(workPlan, 128, 163-190, document.getElementById('department').value, 68*6,12); // Department
-    await editPDF(workPlan, 45, 230-190, document.getElementById('performance-goals-textarea').value, 68*6,10); // Performance Goals
-    await editPDF(workPlan, 473, 108-190, document.getElementById('pNum').value, 68*6,12); // Pnum
-    await editPDF(workPlan, 45, 390-190, document.getElementById('training-assistance-textarea').value, 68*6,10); // Training Assistance
-    await editPDF(workPlan, 45, 460-190, document.getElementById('supervisors-comments-textarea').value, 68*6,8); // Supervisor's Comments
-    await editPDF(workPlan, 45, 515-190, document.getElementById('employees-comments-textarea').value, 68*6,8); // Employee's Comments
-    await editPDF(workPlan, 198, 136-190, document.getElementById('SuperV').value, 68*6,12); // Supervisor
+    await editPDF(workPlan, 150, 108-190, document.getElementById('name').value, 520,12); // Name
+    await editPDF(workPlan, 128, 163-190, document.getElementById('department').value, 520,12); // Department
+    await editPDF(workPlan, 45, 230-190, document.getElementById('performance-goals-textarea').value, 520,10); // Performance Goals
+    await editPDF(workPlan, 473, 108-190, document.getElementById('pNum').value, 520,12); // Pnum
+    await editPDF(workPlan, 45, 390-190, document.getElementById('training-assistance-textarea').value, 520,10); // Training Assistance
+    await editPDF(workPlan, 45, 460-190, document.getElementById('supervisors-comments-textarea').value, 520,8); // Supervisor's Comments
+    await editPDF(workPlan, 45, 515-190, document.getElementById('employees-comments-textarea').value, 520,8); // Employee's Comments
+    await editPDF(workPlan, 198, 136-190, document.getElementById('SuperV').value, 520,12); // Supervisor
 }
 async function pdfinize_oemp(outsideEmployment) {
     // This function is called to convert the outside employment to PDF
     const pages = await outsideEmployment.getPages();
-    await editPDF(outsideEmployment, 160, 252-190, document.getElementById('name').value, 68*6,10); // Outside Employment Name
-    await editPDF(outsideEmployment, 127, 267-190, document.getElementById("pNum").value, 68*6,10); // Pnum
-    await editPDF(outsideEmployment, 257, 267-190, document.getElementById('department').value, 68*6,10); // Department
-    await editPDF(outsideEmployment, 474, 267-190, document.getElementById('position').value, 68*6,10); // Position
-    await editPDF(outsideEmployment, 237, 280-190, document.getElementById('SuperV').value, 68*6,10); // Supervisor
+    await editPDF(outsideEmployment, 160, 252-190, document.getElementById('name').value, 520,10); // Outside Employment Name
+    await editPDF(outsideEmployment, 127, 267-190, document.getElementById("pNum").value, 520,10); // Pnum
+    await editPDF(outsideEmployment, 257, 267-190, document.getElementById('department').value, 520,10); // Department
+    await editPDF(outsideEmployment, 474, 267-190, document.getElementById('position').value, 520,10); // Position
+    await editPDF(outsideEmployment, 237, 280-190, document.getElementById('SuperV').value, 520,10); // Supervisor
     //checkbox
     if (document.getElementById('cSup').checked) {
         pages[0].drawRectangle({
@@ -226,20 +226,20 @@ async function pdfinize_oemp(outsideEmployment) {
     });
     }
     if (document.getElementById('outside').value === "Yes") {
-        await editPDF(outsideEmployment, 98, 345-190, "X", 68*6,10); // Outside Employment Status Positive
+        await editPDF(outsideEmployment, 98, 345-190, "X", 520,10); // Outside Employment Status Positive
     } else {
-        await editPDF(outsideEmployment, 95, 328-190, "X", 68*6,10); // Outside Employment Status Negative
+        await editPDF(outsideEmployment, 95, 328-190, "X", 520,10); // Outside Employment Status Negative
     }
-    await editPDF(outsideEmployment, 260, 362-190, document.getElementById('oEmp').value, 68*6,10); // Outside Employment Company Name
-    await editPDF(outsideEmployment, 268, 380-190, document.getElementById('oAdd').value, 68*6,10); // Outside Employment Address
-    await editPDF(outsideEmployment, 70, 465-190, document.getElementById('job-description-textarea').value, 68*6,10); // Job Description
-    await editPDF(outsideEmployment, 142, 415-190, document.getElementById('m').value, 68*6,10);
-    await editPDF(outsideEmployment, 275, 415-190, document.getElementById('tu').value, 68*6,10); 
-    await editPDF(outsideEmployment, 400, 415-190, document.getElementById('w').value, 68*6,10);
-    await editPDF(outsideEmployment, 507, 415-190, document.getElementById('th').value, 68*6,10);
-    await editPDF(outsideEmployment, 142, 432-190, document.getElementById('f').value, 68*6,10);
-    await editPDF(outsideEmployment, 277, 432-190, document.getElementById('sa').value, 68*6,10);
-    await editPDF(outsideEmployment, 382, 432-190, document.getElementById('su').value, 68*6,10);
+    await editPDF(outsideEmployment, 260, 362-190, document.getElementById('oEmp').value, 520,10); // Outside Employment Company Name
+    await editPDF(outsideEmployment, 268, 380-190, document.getElementById('oAdd').value, 520,10); // Outside Employment Address
+    await editPDF(outsideEmployment, 70, 465-190, document.getElementById('job-description-textarea').value, 520,10); // Job Description
+    await editPDF(outsideEmployment, 142, 415-190, document.getElementById('m').value, 520,10);
+    await editPDF(outsideEmployment, 275, 415-190, document.getElementById('tu').value, 520,10); 
+    await editPDF(outsideEmployment, 400, 415-190, document.getElementById('w').value, 520,10);
+    await editPDF(outsideEmployment, 507, 415-190, document.getElementById('th').value, 520,10);
+    await editPDF(outsideEmployment, 142, 432-190, document.getElementById('f').value, 520,10);
+    await editPDF(outsideEmployment, 277, 432-190, document.getElementById('sa').value, 520,10);
+    await editPDF(outsideEmployment, 382, 432-190, document.getElementById('su').value, 520,10);
 
 }
 
