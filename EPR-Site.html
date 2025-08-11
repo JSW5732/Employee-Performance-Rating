@@ -221,7 +221,7 @@
     <p><input type="checkbox" onclick="if(this.checked) { document.getElementById('hidden-SIncrement').style.display = 'block'; } else { document.getElementById('hidden-SIncrement').style.display = 'none';}" name="salary_increment_checkbox"> A salary increment is due</p>
     <div id="hidden-SIncrement">
       <p>Please indicate one:
-        <select id = "salaryInc" onchange="if(this.value === 'Deferred') { document.getElementById('hidden-SDate').style.display = 'block'; } else { document.getElementById('hidden-SDate').style.display = 'none'; }" name="salary_increment_status">
+        <select id = "salaryInc" onchange="if(this.value === 'D') { document.getElementById('hidden-SDate').style.display = 'block'; } else { document.getElementById('hidden-SDate').style.display = 'none'; }" name="salary_increment_status">
           <option value="" selected disabled hidden></option>
           <option value="A">Approved</option>
           <option value="N">Not Approved</option>
