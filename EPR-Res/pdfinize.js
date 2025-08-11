@@ -267,3 +267,18 @@ async function pdf_print(Full, filename) {
     document.body.removeChild(link);
     alert("Export successful! Check your downloads folder.");
 }
+
+//Bound boxes for reference
+//These will be used to bind the name and other repeating fields
+/*
+function bindTextBoxes(box1, box2) {
+    const box1Element = document.getElementById(box1);
+    const box2Element = document.getElementById(box2);
+    box1Element.addEventListener('input', () => {
+        box2Element.value = box1Element.value;
+    });
+    box2Element.addEventListener('input', () => {
+        box1Element.value = box2Element.value;
+    });
+}
+*/

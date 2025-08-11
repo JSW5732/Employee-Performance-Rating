@@ -15,8 +15,8 @@
 <form action="#" method="post" id = "performanceRatingForm">
 
   <table class="header-table">
-    <tr>
-      <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" id = "name" required></td>
+    <tr> 
+      <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" id = "name" required><!-- onchange="bindTextBoxes('name', 'name2')" for later --></td>
       <td>EMPLOYEE I.D.: <span class="asterisk">*</span><input type="text" name="employee_id" id = "ID" required></td>
     </tr>
     <tr>
@@ -241,7 +241,7 @@
       <div class="form-section">
         <table>
           <tr>
-            <td>EMPLOYEE NAME: <span class="asterisk">*</span> <input type="text" name="employee_name" required></td>
+            <td>EMPLOYEE NAME: <span class="asterisk">*</span> <input type="text" name="employee_name" id="name2" required></td>
             <td>EMPLOYEE #: <span class="asterisk">*</span> <input type="text" name="emplyee_number" required></td>
             <td>DEPARTMENT: <span class="asterisk">*</span> <input type="text" name="department_name" required></td>
           </tr>
