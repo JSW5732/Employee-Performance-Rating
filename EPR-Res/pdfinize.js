@@ -14,6 +14,7 @@
     }
 */
 //import fs from 'fs';
+
 const loadBlanker = async () => {
     const response = await fetch('.\EPR-Res\Blanker  - Supervisory and Administrative 02-13 .pdf'); // Relative to the site root
     if (!response.ok) throw new Error('Failed to load PDF');
@@ -33,6 +34,13 @@ const loadOutsideEmployment = async () => {
 async function onSubmit() {
     // This function is called when the form is submitted
     // It can be thought of as the main function.
+
+    const form = document.getElementById('performanceRatingForm'); // Check to make sure the form is filled out correctly
+    if (!form.checkValidity()) { // for debugging purposes comment L37-41
+        alert("Please fill out all required fields before submitting.");
+        return; // Prevent form submission if validation fails
+    }
+
     alert("Form submitted successfully!"); //This just lets me refresh the page to cancel a download if I forgot to do something
     const blank = await loadPDF('./EPR-Res/Blanker  - Supervisory and Administrative 02-13 .pdf')
     await pdfinize_head(blank);

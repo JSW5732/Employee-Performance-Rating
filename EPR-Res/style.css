@@ -40,6 +40,9 @@ body {
     text-align: center;
     margin-bottom: 20px; /* Add some space below this section */
 }
+.asterisk {
+  color: red;
+}
 /* Style for the new performance ratings link */
 .performance-link {
     margin: 15px 0 25px 0; /* Space above and below the link */

@@ -12,22 +12,22 @@
   </div>
 </div>
 
-<form action="#" method="post">
+<form action="#" method="post" id = "performanceRatingForm">
 
   <table class="header-table">
     <tr>
-      <td>EMPLOYEE NAME: <input type="text" name="employee_name" id = "name"></td>
-      <td>EMPLOYEE I.D.: <input type="text" name="employee_id" id = "ID"></td>
+      <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" id = "name" required></td>
+      <td>EMPLOYEE I.D.: <span class="asterisk">*</span><input type="text" name="employee_id" id = "ID" required></td>
     </tr>
     <tr>
-      <td>POSITION CLASSIFICATION: <input type="text" id = "position" name="position_classification"></td>
-      <td>DEPARTMENT: <input type="text" id = "department" name="department"></td>
+      <td>POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" id = "position" name="position_classification" required></td>
+      <td>DEPARTMENT: <span class="asterisk">*</span><input type="text" id = "department" name="department" required></td>
     </tr>
     <tr>
-      <td>RETURN DATE: <input type="date" name="return_date"></td>
+      <td>RETURN DATE: <span class="asterisk">*</span><input type="date" name="return_date" required></td>
       <td>
-        <label>EVALUATION TYPE: </label>
-        <select id = "evaluationType" name="evaluation_type">
+        <label>EVALUATION TYPE: <span class="asterisk">*</span></label>
+        <select id = "evaluationType" name="evaluation_type" required>
           <option value="" selected disabled hidden></option>
           <option value="Annual">ANNUAL</option>
           <option value="Promotional">PROMOTIONAL</option>
@@ -52,12 +52,12 @@
   <table class="performance-factor-table">
     <tr>
       <th>PERFORMANCE FACTORS</th>
-      <th>APPROPRIATE RATING</th>
+      <th>APPROPRIATE RATING <span class="asterisk">*</span></th>
     </tr>
     <tr>
       <td>1. QUALITY OF WORK: Accuracy, neatness and completeness of work, ability to meet unit's standards with regard to quality.</td>
       <td>
-        <select id ="p1" name="rating_quality_of_work">
+        <select id ="p1" name="rating_quality_of_work" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -69,7 +69,7 @@
     <tr>
       <td>2. QUANTITY OF WORK: Amount of work produced compared with the requirements of position.</td>
       <td>
-        <select id ="p2" name="rating_quanity_of_work">
+        <select id ="p2" name="rating_quanity_of_work" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -81,7 +81,7 @@
     <tr>
       <td>3. WORK HABITS: Organization and planning of work; time management; adherence to established procedures and rules; care of equipment, safety considerations; judgment; persistence and personal habits as they affect work in general.</td>
       <td>
-        <select id ="p3"name="rating_work_habits">
+        <select id ="p3"name="rating_work_habits" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -93,7 +93,7 @@
     <tr>
       <td>4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
       <td>
-        <select id ="p4" name="rating_dependability_initiative">
+        <select id ="p4" name="rating_dependability_initiative" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -105,11 +105,11 @@
     <tr>
       <td>
         5. ATTENDANCE: Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
-        # of Tardiness Occurrences: <input type="text" size="5" id= "tardy"name="tardiness_occurrences"><br>
-        # of Non-Medically Certified Sick Days: <input type="text" size="5" id="sickDays" name="non_med_sick_days">
+        # of Tardiness Occurrences: <span class="asterisk">*</span> <input type="text" size="5" id= "tardy"name="tardiness_occurrences" required><br>
+        # of Non-Medically Certified Sick Days: <span class="asterisk">*</span> <input type="text" size="5" id="sickDays" name="non_med_sick_days" required>
       </td>
       <td>
-        <select id ="p5"name="rating_attendance">
+        <select id ="p5"name="rating_attendance" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -121,7 +121,7 @@
     <tr>
       <td>6. RELATIONSHIP WITH PEOPLE: Courtesy, tact, self-control, patience, loyalty, and discretion in dealing with fellow employees and the public.</td>
       <td>
-        <select id ="p6" name="rating_relationship_with_people">
+        <select id ="p6" name="rating_relationship_with_people" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -133,7 +133,7 @@
     <tr>
       <td>7. PERSONAL ADJUSTMENT. Attitude toward work and supervision.</td>
       <td>
-        <select id ="p7" name="rating_personal_adjustment">
+        <select id ="p7" name="rating_personal_adjustment" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -145,7 +145,7 @@
     <tr>
       <td>8. ADMINISTRATIVE ABILITY: Promptness of action; soundness of decision; application of good management principles and communication skills. Creative planning. Organizing Staff.</td>
       <td>
-        <select id ="p8"name="rating_administrative_ability">
+        <select id ="p8"name="rating_administrative_ability" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -157,7 +157,7 @@
     <tr>
       <td>9. ABILITY AS A SUPERVISOR (if applicable): Proficiency in training employees; planning and assigning work; ability to evaluate employees in an accurate and timely manner; organizing, laying out and completing work; and leadership. Compliance with policies. </td>
       <td>
-        <select id ="p9"name="rating_ability_as_supervisor">
+        <select id ="p9"name="rating_ability_as_supervisor" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -169,7 +169,7 @@
     <tr>
       <td>OVERALL PERFORMANCE RATING: Must be consistent with the factor ratings.</td>
       <td>
-        <select id ="overallP"name="overall_performance_rating">
+        <select id ="overallP"name="overall_performance_rating" required>
           <option value="" selected disabled hidden></option>
           <option value="U">U</option>
           <option value="NI">NI</option>
@@ -241,19 +241,19 @@
       <div class="form-section">
         <table>
           <tr>
-            <td>EMPLOYEE NAME: <input type="text" name="employee_name"></td>
-            <td>EMPLOYEE #: <input type="text" name="emplyee_number"></td>
-            <td>DEPARTMENT: <input type="text" name="department_name"></td>
+            <td>EMPLOYEE NAME: <span class="asterisk">*</span> <input type="text" name="employee_name" required></td>
+            <td>EMPLOYEE #: <span class="asterisk">*</span> <input type="text" name="emplyee_number" required></td>
+            <td>DEPARTMENT: <span class="asterisk">*</span> <input type="text" name="department_name" required></td>
           </tr>
           <tr>
-            <td>FJD POSITION CLASSIFICATION: <input type="text" name="fjd_position"></td>
-            <td>NAME OF IMMEDIATE SUPERVISOR: <input type="text" name="supervisor_name"></td>
+            <td>FJD POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" name="fjd_position" required></td>
+            <td>NAME OF IMMEDIATE SUPERVISOR: <span class="asterisk">*</span> <input type="text" name="supervisor_name" required></td>
           </tr>
         </table>
         
         <label><input type="checkbox" id = "cSup" name="change_in_supervisor">Check Here if you are completing this form because of a change in supervisor.</label>
-        <p>In addition to your FJD job, are you working for another employer or are you self-employed?
-          <select id = "outside" onchange="if(this.value === 'Yes') { document.getElementById('hidden-emp').style.display = 'block'; } else { document.getElementById('hidden-emp').style.display = 'none'; }" id="outsideEmployment" name="outside_employment_status">
+        <p>In addition to your FJD job, are you working for another employer or are you self-employed? <span class="asterisk">*</span> 
+          <select id = "outside" onchange="if(this.value === 'Yes') { document.getElementById('hidden-emp').style.display = 'block'; } else { document.getElementById('hidden-emp').style.display = 'none'; }" id="outsideEmployment" name="outside_employment_status" required>
             <option value="" selected disabled hidden></option>
             <option>Yes</option>
             <option>No</option>
@@ -300,21 +300,21 @@
     <div id="employeeWorkPlanForm" style="display: none;">
         <div class="form-section">
             <table class="work-plan-table"> <tr>
-                <td>Employee Name: <input type="text" name="work_plan_employee_name"></td>
-                <td>Payroll No. <input type="text" id = "pNum" name="work_plan_payroll_no"></td>
+                <td>Employee Name: <span class="asterisk">*</span> <input type="text" name="work_plan_employee_name" required></td>
+                <td>Payroll No.  <span class="asterisk">*</span> <input type="text" id = "pNum" name="work_plan_payroll_no" required></td>
               </tr>
               <tr>
-                <td>Supervisor/Manager Name: <input type="text" id = SuperV name="work_plan_supervisor_name"></td>
-                <td>Department: <input type="text" name="work_plan_department"></td>
+                <td>Supervisor/Manager Name: <span class="asterisk">*</span> <input type="text" id = SuperV name="work_plan_supervisor_name" required></td>
+                <td>Department: <span class="asterisk">*</span> <input type="text" name="work_plan_department" required></td>
               </tr>
             </table>
             
-            <p>Performance Goals (list major goals or accountabilities - include time frame and method of measurement):</p>
-            <textarea name="performance_goals" maxlength="800" id="performance-goals-textarea"></textarea>
+            <p>Performance Goals (list major goals or accountabilities - include time frame and method of measurement): <span class="asterisk">*</span></p>
+            <textarea name="performance_goals" maxlength="800" id="performance-goals-textarea" required></textarea>
             <span id="performance-goals-counter" class="char-counter">0/800</span>
 
-            <p>Training/Assistance:</p>
-            <textarea name="training_assistance" maxlength="330" id="training-assistance-textarea"></textarea>
+            <p>Training/Assistance: <span class="asterisk">*</span></p>
+            <textarea name="training_assistance" maxlength="330" id="training-assistance-textarea" required></textarea>
             <span id="training-assistance-counter" class="char-counter">0/330</span>
 
             <p>Supervisors Comments:</p>
