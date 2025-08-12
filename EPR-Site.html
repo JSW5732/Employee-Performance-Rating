@@ -16,12 +16,12 @@
 
   <table class="header-table">
     <tr> 
-      <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" id = "name" oninput="bindTextBoxes('name', 'name2', 'name3')" required></td>
-      <td>EMPLOYEE I.D.: <span class="asterisk">*</span><input type="text" name="employee_id" id = "ID" oninput="bindTextBoxes('ID', 'ID2', 'pNum')" required></td>
+      <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" id = "name" oninput="bindTextBoxes('name', 'name2', 'name3')" maxlength="35" required></td>
+      <td>EMPLOYEE I.D.: <span class="asterisk">*</span><input type="text" name="employee_id" id = "ID" oninput="bindTextBoxes('ID', 'ID2', 'pNum')" maxlength="10" required></td>
     </tr>
     <tr>
-      <td>POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" id = "position" name="position_classification" oninput="bindTextBoxes('position', 'pos2')" required></td>
-      <td>DEPARTMENT: <span class="asterisk">*</span><input type="text" id = "department" name="department" oninput="bindTextBoxes('department', 'd2', 'd3')" required></td>
+      <td>POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" id = "position" name="position_classification" oninput="bindTextBoxes('position', 'pos2')" maxlength= "25"required></td>
+      <td>DEPARTMENT: <span class="asterisk">*</span><input type="text" id = "department" name="department" oninput="bindTextBoxes('department', 'd2', 'd3')" max length 16 required></td>
     </tr>
     <tr>
       <td>RETURN DATE: <span class="asterisk">*</span><input type="date" name="return_date" required></td>
@@ -105,8 +105,8 @@
     <tr>
       <td>
         5. ATTENDANCE: Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
-        # of Tardiness Occurrences: <span class="asterisk">*</span> <input type="text" size="5" id= "tardy"name="tardiness_occurrences" required><br>
-        # of Non-Medically Certified Sick Days: <span class="asterisk">*</span> <input type="text" size="5" id="sickDays" name="non_med_sick_days" required>
+        # of Tardiness Occurrences: <span class="asterisk">*</span> <input type="text" size="5" maxlength="3" id= "tardy"name="tardiness_occurrences" required><br>
+        # of Non-Medically Certified Sick Days: <span class="asterisk">*</span> <input type="text" size="5" maxlength="3" id="sickDays" name="non_med_sick_days" required>
       </td>
       <td>
         <select id ="p5"name="rating_attendance" required>
@@ -241,13 +241,13 @@
       <div class="form-section">
         <table>
           <tr>
-            <td>EMPLOYEE NAME: <span class="asterisk">*</span> <input type="text" name="employee_name" id="name2" required></td>
-            <td>EMPLOYEE #: <span class="asterisk">*</span> <input type="text" name="emplyee_number" id = "ID2" required></td>
-            <td>DEPARTMENT: <span class="asterisk">*</span> <input type="text" name="department_name" id = "d2" required></td>
+            <td>EMPLOYEE NAME: <span class="asterisk">*</span> <input type="text" maxlength="35" name="employee_name" id="name2" required></td>
+            <td>EMPLOYEE #: <span class="asterisk">*</span> <input type="text" maxlength="10" name="emplyee_number" id = "ID2" required></td>
+            <td>DEPARTMENT: <span class="asterisk">*</span> <input type="text" maxlength="16" name="department_name" id = "d2" required></td>
           </tr>
           <tr>
-            <td>FJD POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" name="fjd_position" id = "pos2" required></td>
-            <td>NAME OF IMMEDIATE SUPERVISOR: <span class="asterisk">*</span> <input type="text" name="supervisor_name" id = "S2" oninput="bindTextBoxes('S2', 'SuperV')" required></td>
+            <td>FJD POSITION CLASSIFICATION: <span class="asterisk">*</span> <input type="text" maxlength="25" name="fjd_position" id = "pos2" required></td>
+            <td>NAME OF IMMEDIATE SUPERVISOR: <span class="asterisk">*</span> <input type="text" maxlength="80" name="supervisor_name" id = "S2" oninput="bindTextBoxes('S2', 'SuperV')" required></td>
           </tr>
         </table>
         
@@ -300,12 +300,12 @@
     <div id="employeeWorkPlanForm" style="display: none;">
         <div class="form-section">
             <table class="work-plan-table"> <tr>
-                <td>Employee Name: <span class="asterisk">*</span> <input type="text" name="work_plan_employee_name" id = "name3" required></td>
-                <td>Payroll No.  <span class="asterisk">*</span> <input type="text" id = "pNum" name="work_plan_payroll_no" required></td>
+                <td>Employee Name: <span class="asterisk">*</span> <input type="text" maxlength="35" name="work_plan_employee_name" id = "name3" required></td>
+                <td>Payroll No.  <span class="asterisk">*</span> <input type="text" id = "pNum" maxlength="10" name="work_plan_payroll_no" required></td>
               </tr>
               <tr>
-                <td>Supervisor/Manager Name: <span class="asterisk">*</span> <input type="text" id = "SuperV" name="work_plan_supervisor_name" required></td>
-                <td>Department: <span class="asterisk">*</span> <input type="text" id = "d3" name="work_plan_department" required></td>
+                <td>Supervisor/Manager Name: <span class="asterisk">*</span> <input type="text" id = "SuperV" maxlength="80" name="work_plan_supervisor_name" required></td>
+                <td>Department: <span class="asterisk">*</span> <input type="text" id = "d3" maxlength="16" name="work_plan_department" required></td>
               </tr>
             </table>
             
