@@ -270,15 +270,19 @@ async function pdf_print(Full, filename) {
 
 //Bound boxes for reference
 //These will be used to bind the name and other repeating fields
-/*
-function bindTextBoxes(box1, box2) {
+
+//This function binds two text boxes together so that they always have the same value if there are three boxes, it will bind the first two together and the third one will be bound to the second one
+function bindTextBoxes(box1, box2, box3) {
     const box1Element = document.getElementById(box1);
     const box2Element = document.getElementById(box2);
+    const box3Element = document.getElementById(box3);
     box1Element.addEventListener('input', () => {
         box2Element.value = box1Element.value;
     });
     box2Element.addEventListener('input', () => {
         box1Element.value = box2Element.value;
     });
+    box3Element.addEventListener('input', () => {
+        box3Element.value = box2Element.value;
+    });
 }
-*/
