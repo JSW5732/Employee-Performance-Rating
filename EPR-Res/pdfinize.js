@@ -285,4 +285,7 @@ function bindTextBoxes(box1, box2, box3) {
     box3Element.addEventListener('input', () => {
         box3Element.value = box2Element.value;
     });
+    box1Element.addEventListener('input', () => {
+        box3Element.value = box1Element.value;
+    });
 }
