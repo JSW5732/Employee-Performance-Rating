@@ -41,7 +41,7 @@ body {
     margin-bottom: 20px; /* Add some space below this section */
 }
 .asterisk {
-  color: red;
+  color: #EB0000;
 }
 /* Style for the new performance ratings link */
 .performance-link {
