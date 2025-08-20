@@ -96,6 +96,13 @@ function handleFileSelection(fileInputId, displayDivId) {
         const file = event.target.files[0];
         
         if (file) {
+            // New check for file type
+            if (file.type !== 'application/pdf') {
+                alert('Only PDF documents can be attached to the final output. Please convert your file to PDF and try again.');
+                fileInput.value = ''; // Clear the file input
+                return; // Exit the function
+            }
+
             const fileName = file.name;
             const fileURL = URL.createObjectURL(file);
 
