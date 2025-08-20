@@ -185,6 +185,13 @@
     <textarea name="comments" aria-label="comments" maxlength="800" id="comments"></textarea>
     <span id="comments-counter" class="char-counter">0/800</span>
   </div>
+  <label><input type="checkbox" id = "attachCommentsCheckbox" onclick="toggleFileAttach('attachCommentsDiv')" aria-label="attach_comments_checkbox"> Click to attach additional document</label>
+  <div id="attachCommentsDiv" style="display: none;">
+      <input type="file" id="commentsFile" aria-label="comments_file" style="display: none;">
+      <label for="commentsFile" class="file-attach-button">Attach Document Here</label>
+      <div id="commentsFileDisplay"></div>
+  </div>
+
 
   <div class="signature-section">
     <p>Reviewing Officer Signature: <input type="text" style="width: 300px;" name="reviewing_officer_signature" aria-label="reviewing_officer_signature"> Date: <input type="date" name="reviewing_officer_date" aria-label="reviewing_officer_date"></p>
@@ -207,8 +214,9 @@
       <textarea name="attached_response" maxlength="500" id="e1" aria-label="attached_response"></textarea>
       <span id="attached-response-counter" class="char-counter">0/500</span>
     </div>
+
     <label><input type="checkbox" id ="e2" value = "c" name="discuss_evaluation_checkbox" aria-label="discuss_evaluation_checkbox"> I would like to discuss this performance evaluation with the reviewing officer.</label>
-    <label><input type="checkbox" id ="e3"value = "c"name="appeal_rating_checkbox" aria-label="appeal_rating_checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
+    <label><input type="checkbox" id ="e3"value = "c" name="appeal_rating_checkbox" aria-label="appeal_rating_checkbox"> I would like to appeal the overall unsatisfactory rating to the Deputy Court Administrator.</label>
     <label><input type="checkbox" id ="e4"value = "c" name="employee_refuses_sign_checkbox" aria-label="employee_refuses_sign_checkbox"> Employee refuses to sign.</label>
   </div>
 
@@ -284,6 +292,12 @@
         <p>Describe duties performed and state job title in your outside employment (attach job description):</p>
         <textarea name="job_description" maxlength="330" id="job-description-textarea" aria-label="job_description"></textarea>
         <span id="job-description-counter" class="char-counter">0/330</span>
+        <label><input type="checkbox" id="attachJobDescriptionCheckbox" onclick="toggleFileAttach('attachJobDescriptionDiv')" aria-label="attach_job_description_checkbox"> Click to attach additional document</label>
+        <div id="attachJobDescriptionDiv" style="display: none;">
+            <input type="file" id="jobDescriptionFile" aria-label="job_description_file" style="display: none;">
+            <label for="jobDescriptionFile" class="file-attach-button">Attach Document Here</label>
+            <div id="jobDescriptionFileDisplay"></div>
+        </div>
         </div>
         <div style="height: 30px;"></div>
         <p>By signing below I am certifying that the above information provided about my outside employment activities is accurate and complete, and I further acknowledge that I am under an ongoing duty to complete and submit a new Outside Employment Disclosure Form immediately to report any changes to the information provided above.<br>
@@ -310,18 +324,42 @@
             <p>Performance Goals (list major goals or accountabilities - include time frame and method of measurement): <span class="asterisk">*</span></p>
             <textarea name="performance_goals" maxlength="800" id="performance-goals-textarea" aria-label="performance_goals" required></textarea>
             <span id="performance-goals-counter" class="char-counter">0/800</span>
+            <label><input type="checkbox" id="attachPerformanceGoalsCheckbox" onclick="toggleFileAttach('attachPerformanceGoalsDiv')" aria-label="attach_performance_goals_checkbox"> Click to attach additional document</label>
+            <div id="attachPerformanceGoalsDiv" style="display: none;">
+                <input type="file" id="performanceGoalsFile" aria-label="performance_goals_file" style="display: none;">
+                <label for="performanceGoalsFile" class="file-attach-button">Attach Document Here</label>
+                <div id="performanceGoalsFileDisplay"></div>
+            </div>
 
             <p>Training/Assistance: <span class="asterisk">*</span></p>
             <textarea name="training_assistance" maxlength="330" id="training-assistance-textarea" aria-label="training_assistance" required></textarea>
             <span id="training-assistance-counter" class="char-counter">0/330</span>
+            <label><input type="checkbox" id="attachTrainingCheckbox" onclick="toggleFileAttach('attachTrainingDiv')" aria-label="attach_training_checkbox"> Click to attach additional document</label>
+            <div id="attachTrainingDiv" style="display: none;">
+                <input type="file" id="trainingFile" aria-label="training_file" style="display: none;">
+                <label for="trainingFile" class="file-attach-button">Attach Document Here</label>
+                <div id="trainingFileDisplay"></div>
+            </div>
 
             <p>Supervisors Comments:</p>
             <textarea name="supervisors_comments" maxlength="280" id="supervisors-comments-textarea" aria-label="supervisors_comments"></textarea>
             <span id="supervisors-comments-counter" class="char-counter">0/280</span>
+            <label><input type="checkbox" id="attachSupervisorsCommentsCheckbox" onclick="toggleFileAttach('attachSupervisorsCommentsDiv')" aria-label="attach_supervisors_comments_checkbox"> Click to attach additional document</label>
+            <div id="attachSupervisorsCommentsDiv" style="display: none;">
+                <input type="file" id="supervisorsCommentsFile" aria-label="supervisors_comments_file" style="display: none;">
+                <label for="supervisorsCommentsFile" class="file-attach-button">Attach Document Here</label>
+                <div id="supervisorsCommentsFileDisplay"></div>
+            </div>
 
             <p>Employees Comments:</p>
             <textarea name="employees_comments" maxlength="280" id="employees-comments-textarea" aria-label="employees_comments"></textarea>
             <span id="employees-comments-counter" class="char-counter">0/280</span>
+            <label><input type="checkbox" id="attachEmployeesCommentsCheckbox" onclick="toggleFileAttach('attachEmployeesCommentsDiv')" aria-label="attach_employees_comments_checkbox"> Click to attach additional document</label>
+            <div id="attachEmployeesCommentsDiv" style="display: none;">
+                <input type="file" id="employeesCommentsFile" aria-label="employees_comments_file" style="display: none;">
+                <label for="employeesCommentsFile" class="file-attach-button">Attach Document Here</label>
+                <div id="employeesCommentsFileDisplay"></div>
+            </div>
 
             <p>I acknowledge that I have discussed this work plan with my supervisor, and understand the level of performance required.</p>
 

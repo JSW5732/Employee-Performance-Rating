@@ -38,8 +38,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup counters for each textarea
     setupCharCounter('comments', 'comments-counter');
     setupCharCounter('e1', 'attached-response-counter');
-    setupCharCounter('performance-goals-textarea', 'performance-goals-counter'); // New
-    setupCharCounter('training-assistance-textarea', 'training-assistance-counter'); // New
-    setupCharCounter('supervisors-comments-textarea', 'supervisors-comments-counter'); // New
-    setupCharCounter('employees-comments-textarea', 'employees-comments-counter'); // New
+    setupCharCounter('job-description-textarea', 'job-description-counter');
+    setupCharCounter('performance-goals-textarea', 'performance-goals-counter');
+    setupCharCounter('training-assistance-textarea', 'training-assistance-counter');
+    setupCharCounter('supervisors-comments-textarea', 'supervisors-comments-counter');
+    setupCharCounter('employees-comments-textarea', 'employees-comments-counter');
+
+    // Setup event listeners for file inputs
+    handleFileSelection('commentsFile', 'commentsFileDisplay');
+    handleFileSelection('jobDescriptionFile', 'jobDescriptionFileDisplay');
+    handleFileSelection('performanceGoalsFile', 'performanceGoalsFileDisplay');
+    handleFileSelection('trainingFile', 'trainingFileDisplay');
+    handleFileSelection('supervisorsCommentsFile', 'supervisorsCommentsFileDisplay');
+    handleFileSelection('employeesCommentsFile', 'employeesCommentsFileDisplay');
 });
+
+function bindTextBoxes(sourceId, ...targetIds) {
+    const sourceElement = document.getElementById(sourceId);
+    if (!sourceElement) return;
+
+    sourceElement.addEventListener('input', (event) => {
+        const value = event.target.value;
+        targetIds.forEach(targetId => {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.value = value;
+            }
+        });
+    });
+}
+
+// Function to toggle the file attachment section
+function toggleFileAttach(divId) {
+    const fileDiv = document.getElementById(divId);
+    if (fileDiv) {
+        fileDiv.style.display = fileDiv.style.display === "block" ? "none" : "block";
+    }
+}
+
+/**
+ * Handles the file selection for a given input and displays the file name as a downloadable link.
+ * @param {string} fileInputId The ID of the file input element.
+ * @param {string} displayDivId The ID of the div to display the link in.
+ */
+function handleFileSelection(fileInputId, displayDivId) {
+    const fileInput = document.getElementById(fileInputId);
+    const displayDiv = document.getElementById(displayDivId);
+
+    if (!fileInput || !displayDiv) {
+        console.warn(`File input or display div not found for IDs: ${fileInputId}, ${displayDivId}`);
+        return;
+    }
+
+    fileInput.addEventListener('change', (event) => {
+        // Clear any previous file name
+        displayDiv.innerHTML = '';
+        const file = event.target.files[0];
+        
+        if (file) {
+            const fileName = file.name;
+            const fileURL = URL.createObjectURL(file);
+
+            const fileLink = document.createElement('a');
+            fileLink.href = fileURL;
+            fileLink.download = fileName; // This makes the link a download link
+            fileLink.textContent = `Attached: ${fileName}`;
+            fileLink.classList.add('attached-file-link');
+
+            displayDiv.appendChild(fileLink);
+        }
+    });
+}
