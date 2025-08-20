@@ -5,7 +5,7 @@
 <body>
 
 <div class="header-container">
-  <img src="./EPR-Res/FJD-Seal.png" alt="First Judicial District of Pennsylvania Seal" class="logo">
+  <img src="./EPR-Res/FJD-Seal.jpg" alt="First Judicial District of Pennsylvania Seal" class="logo">
   <div class="header-text">
     <h1>First Judicial District of Pennsylvania</h1>
     <h2>EMPLOYEE PERFORMANCE RATING - SUPERVISORY & ADMINISTRATIVE</h2>
@@ -15,7 +15,7 @@
 <form action="#" method="post" id = "performanceRatingForm">
 
   <table class="header-table">
-    <tr> 
+    <tr>
       <td>EMPLOYEE NAME: <span class="asterisk">*</span><input type="text" name="employee_name" aria-label="employee_name" id = "name" oninput="bindTextBoxes('name', 'name2', 'name3')" maxlength="35" required></td>
       <td>EMPLOYEE I.D.: <span class="asterisk">*</span><input type="text" name="employee_id" aria-label="employee_id" id = "ID" oninput="bindTextBoxes('ID', 'ID2', 'pNum')" maxlength="10" required></td>
     </tr>
@@ -55,7 +55,7 @@
       <th>APPROPRIATE RATING <span class="asterisk">*</span></th>
     </tr>
     <tr>
-      <td>1. QUALITY OF WORK: Accuracy, neatness and completeness of work, ability to meet unit's standards with regard to quality.</td>
+      <td><span class="performance-bold">1. QUALITY OF WORK:</span> Accuracy, neatness and completeness of work, ability to meet unit's standards with regard to quality.</td>
       <td>
         <select id ="p1" name="rating_quality_of_work" aria-label="rating_quality_of_work" required>
           <option value="" selected disabled hidden></option>
@@ -67,7 +67,7 @@
       </td>
     </tr>
     <tr>
-      <td>2. QUANTITY OF WORK: Amount of work produced compared with the requirements of position.</td>
+      <td><span class="performance-bold">2. QUANTITY OF WORK:</span> Amount of work produced compared with the requirements of position.</td>
       <td>
         <select id ="p2" name="rating_quanity_of_work" aria-label="rating_quanity_of_work" required>
           <option value="" selected disabled hidden></option>
@@ -79,7 +79,7 @@
       </td>
     </tr>
     <tr>
-      <td>3. WORK HABITS: Organization and planning of work; time management; adherence to established procedures and rules; care of equipment, safety considerations; judgment; persistence and personal habits as they affect work in general.</td>
+      <td><span class="performance-bold">3. WORK HABITS:</span> Organization and planning of work; time management; adherence to established procedures and rules; care of equipment, safety considerations; judgment; persistence and personal habits as they affect work in general.</td>
       <td>
         <select id ="p3"name="rating_work_habits" aria-label="rating_work_habits" required>
           <option value="" selected disabled hidden></option>
@@ -91,7 +91,7 @@
       </td>
     </tr>
     <tr>
-      <td>4. DEPENDABILITY/INITIATIVE: Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
+      <td><span class="performance-bold">4. DEPENDABILITY/INITIATIVE:</span> Ability to accomplish assignments without close supervision and meet specified deadlines.</td>
       <td>
         <select id ="p4" name="rating_dependability_initiative" aria-label="rating_dependability_initiative" required>
           <option value="" selected disabled hidden></option>
@@ -104,7 +104,7 @@
     </tr>
     <tr>
       <td>
-        5. ATTENDANCE: Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
+        <span class="performance-bold">5. ATTENDANCE:</span> Plan and request leave usage in advance; number of non medically certified sick days used; patterns of sick usage such as days before/after weekend, holiday or other leave time, adherence to established work hours, return from breaks or lunch, frequency of lateness as it relates to designated starting times.<br>
         # of Tardiness Occurrences: <span class="asterisk">*</span> <input type="text" size="5" maxlength="3" id= "tardy"name="tardiness_occurrences" aria-label="tardiness_occurrences" required><br>
         # of Non-Medically Certified Sick Days: <span class="asterisk">*</span> <input type="text" size="5" maxlength="3" id="sickDays" name="non_med_sick_days" aria-label="non_med_sick_days" required>
       </td>
@@ -119,7 +119,7 @@
       </td>
     </tr>
     <tr>
-      <td>6. RELATIONSHIP WITH PEOPLE: Courtesy, tact, self-control, patience, loyalty, and discretion in dealing with fellow employees and the public.</td>
+      <td><span class="performance-bold">6. RELATIONSHIP WITH PEOPLE:</span> Courtesy, tact, self-control, patience, loyalty, and discretion in dealing with fellow employees and the public.</td>
       <td>
         <select id ="p6" name="rating_relationship_with_people" aria-label="rating_relationship_with_people" required>
           <option value="" selected disabled hidden></option>
@@ -131,7 +131,7 @@
       </td>
     </tr>
     <tr>
-      <td>7. PERSONAL ADJUSTMENT. Attitude toward work and supervision.</td>
+      <td><span class="performance-bold">7. PERSONAL ADJUSTMENT.</span> Attitude toward work and supervision.</td>
       <td>
         <select id ="p7" name="rating_personal_adjustment" aria-label="rating_personal_adjustment" required>
           <option value="" selected disabled hidden></option>
@@ -143,7 +143,7 @@
       </td>
     </tr>
     <tr>
-      <td>8. ADMINISTRATIVE ABILITY: Promptness of action; soundness of decision; application of good management principles and communication skills. Creative planning. Organizing Staff.</td>
+      <td><span class="performance-bold">8. ADMINISTRATIVE ABILITY:</span> Promptness of action; soundness of decision; application of good management principles and communication skills. Creative planning. Organizing Staff.</td>
       <td>
         <select id ="p8"name="rating_administrative_ability" aria-label="rating_administrative_ability" required>
           <option value="" selected disabled hidden></option>
@@ -155,7 +155,7 @@
       </td>
     </tr>
     <tr>
-      <td>9. ABILITY AS A SUPERVISOR (if applicable): Proficiency in training employees; planning and assigning work; ability to evaluate employees in an accurate and timely manner; organizing, laying out and completing work; and leadership. Compliance with policies. </td>
+      <td><span class="performance-bold">9. ABILITY AS A SUPERVISOR (if applicable):</span> Proficiency in training employees; planning and assigning work; ability to evaluate employees in an accurate and timely manner; organizing, laying out and completing work; and leadership. Compliance with policies. </td>
       <td>
         <select id ="p9"name="rating_ability_as_supervisor" aria-label="rating_ability_as_supervisor" required>
           <option value="" selected disabled hidden></option>
@@ -167,7 +167,7 @@
       </td>
     </tr>
     <tr>
-      <td>OVERALL PERFORMANCE RATING: Must be consistent with the factor ratings.</td>
+      <td><span class="performance-bold">OVERALL PERFORMANCE RATING:</span> Must be consistent with the factor ratings.</td>
       <td>
         <select id ="overallP"name="overall_performance_rating" aria-label="overall_performance_rating" required>
           <option value="" selected disabled hidden></option>
@@ -236,7 +236,6 @@
     <div class="outside-employment-button">
       <button type="button" name = "outside_employment_button" aria-label="outside_employment_button" onclick="toggleEmploymentForm()">Click Here for Outside Employment Form</button>
     </div>
-    <!--                                                     Outside Employment Form                                                     -->
     <div id="outsideEmploymentForm" style = "display: none;">
       <div class="form-section">
         <table>
@@ -293,7 +292,6 @@
       </div>
     </div>
     
-    <!--                                                     Employee Work Plan Form                                                     -->
     <div class="work-plan-button">
         <button type="button" name = "work_plan_button" aria-label="work_plan_button" onclick="toggleWorkPlanForm()">Click Here for Employee Work Plan Form</button>
     </div>
@@ -301,7 +299,7 @@
         <div class="form-section">
             <table class="work-plan-table"> <tr>
                 <td>Employee Name: <span class="asterisk">*</span> <input type="text" maxlength="35" name="work_plan_employee_name" id = "name3" aria-label="work_plan_employee_name" required></td>
-                <td>Payroll No.  <span class="asterisk">*</span> <input type="text" id = "pNum" maxlength="10" name="work_plan_payroll_no" aria-label="work_plan_payroll_no" required></td>
+                <td>Payroll No.  <span class="asterisk">*</span> <input type="text" id = "pNum" maxlength="10" name="work_plan_payroll_no" aria-label="work_plan_payroll_no" required></td>
               </tr>
               <tr>
                 <td>Supervisor/Manager Name: <span class="asterisk">*</span> <input type="text" id = "SuperV" maxlength="65" name="work_plan_supervisor_name" aria-label="work_plan_supervisor_name" required></td>
@@ -339,7 +337,7 @@
 
 </form>
   
-<script> 
+<script>
   function toggleEmploymentForm() {
     const outsideEmploymentForm = document.getElementById("outsideEmploymentForm");
     outsideEmploymentForm.style.display = outsideEmploymentForm.style.display === "none" ? "block" : "none";

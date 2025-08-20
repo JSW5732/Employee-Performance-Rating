@@ -41,7 +41,7 @@ body {
     margin-bottom: 20px; /* Add some space below this section */
 }
 .asterisk {
-  color: #EB0000;
+    color: #EB0000;
 }
 /* Style for the new performance ratings link */
 .performance-link {
@@ -63,6 +63,12 @@ body {
 .performance-link a:hover {
     background-color: #cceeff; /* Lighter blue on hover */
     color: #003d80; /* Darker text on hover */
+}
+
+/* NEW: Rule to make the text bold before the colon */
+.performance-bold {
+    font-weight: bold;
+    color: #333; /* Darker color for emphasis */
 }
 
 table {
