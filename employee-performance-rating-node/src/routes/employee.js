@@ -11,8 +11,8 @@ router.get('/:id', async (req, res) => {
     if (rows.length === 0) return res.status(404).json({ error: 'Not found' });
     res.json(rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Database error' });
+    console.error('Database error:', err); // <-- more detailed error
+    res.status(500).json({ error: 'Database error', details: err.message });
   }
 });
 
