@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
+router.get('/test', (req, res) => {
+  res.json({ message: 'Test route works!' });
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const [rows] = await pool.query(
