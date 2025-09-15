@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require('../db');
 
 router.get('/:id', async (req, res) => {
+  console.log('Request received for employee:', req.params.id); // <-- Add this line
   try {
     const [rows] = await pool.query(
       'SELECT * FROM employees WHERE p_empno = ?',
