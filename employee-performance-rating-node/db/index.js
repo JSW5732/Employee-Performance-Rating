@@ -1,4 +1,5 @@
 const sql = require('mssql');
+
 require('dotenv').config();
 
 const config = {
@@ -12,5 +13,10 @@ const config = {
 };
 
 const pool = new sql.ConnectionPool(config);
+
+// Connect to the database and handle errors
+pool.connect().catch(err => {
+    console.error('Database connection failed:', err.message);
+});
 
 module.exports = pool;
